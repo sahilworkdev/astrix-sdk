@@ -1,6 +1,6 @@
 {
   "name": "astrixx-sdkk",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Astrix SDK",
   "type": "module",
   "main": "dist/index.js",
