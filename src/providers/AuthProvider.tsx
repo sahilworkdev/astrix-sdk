@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         .then((response) => {
           console.log(response.data);
           setIsAuthenticated(true);
-          setUserData(response.data);
+          setUserData(response.data.data);
         })
         .catch(() => {
           setIsAuthenticated(false);

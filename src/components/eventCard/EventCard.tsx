@@ -1,10 +1,9 @@
 import React from "react";
-import "./EventCard.css";
 import { formatDateInIST, formatTimeInIST } from "../../utils";
 import { FaCalendarAlt } from "react-icons/fa";
 import { useTheme } from "../../providers/ThemeProvider";
 
-const EventCard = () => {
+const EventCard = ({ item, key }: any) => {
   const { accentColor } = useTheme();
 
   return (
@@ -66,6 +65,8 @@ const EventCard = () => {
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
                   borderRadius: "0.5rem 0.5rem 0 0",
+                  height: "300px",
+                  width: "100%",
                 }}
               />
             </div>
