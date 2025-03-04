@@ -1,6 +1,6 @@
 {
   "name": "astrix-sdk",
-  "version": "1.1.5",
+  "version": "0.0.0",
   "description": "Astrix SDK",
   "type": "module",
   "main": "dist/index.js",
