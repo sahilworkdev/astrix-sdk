@@ -6,7 +6,7 @@ import PastEventsWrapper from "./components/PastEventsWrapper";
 function App() {
   return (
     <>
-      <AuthProvider>
+      <AuthProvider token={import.meta.env.VITE_ASTRIX_APP_AUTH_TOKEN}>
         <ThemeProvider accentColor="#3498db">
           <PastEventsWrapper />
         </ThemeProvider>
