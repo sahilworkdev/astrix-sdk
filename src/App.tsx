@@ -1,9 +1,15 @@
 import React from "react";
+import { AuthProvider } from "./providers/AuthProvider";
+import { ThemeProvider } from "./providers/ThemeProvider";
 
 function App() {
   return (
     <>
-      <h1>Astrix SDK</h1>
+      <AuthProvider>
+        <ThemeProvider accentColor="#3498db">
+          <div className="App">Hello World</div>
+        </ThemeProvider>
+      </AuthProvider>
     </>
   );
 }
