@@ -27,14 +27,18 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [userData, setUserData] = useState<Record<string, any> | null>(null);
 
   useEffect(() => {
-    const token = process.env.ASTRIX_APP_AUTH_TOKEN;
+    const token = import.meta.env.VITE_ASTRIX_APP_AUTH_TOKEN;
 
     if (token) {
       axios
-        .get("https://api.example.com/user", {
-          headers: { Authorization: `Bearer ${token}` },
-        })
+        .get(
+          "https://astrix-events-staging.azurewebsites.net/event/getAll?page=1",
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          },
+        )
         .then((response) => {
+          console.log(response.data);
           setIsAuthenticated(true);
           setUserData(response.data);
         })
