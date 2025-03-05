@@ -4,6 +4,10 @@ import { ThemeProvider } from "./providers/ThemeProvider";
 import PastCarousel from "./components/landingAndHome/desktop/PastCarousel";
 import "./index.css";
 
+
+
+
+
 function App() {
   return (
     <>

@@ -8,6 +8,7 @@ const LandingEventCard = ({ item, key }: any) => {
 
   return (
     <div
+      key={key}
       style={{
         display: "flex",
         height: "100%",
