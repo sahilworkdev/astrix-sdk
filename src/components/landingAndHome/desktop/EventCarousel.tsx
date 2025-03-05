@@ -60,7 +60,7 @@ export default function EventCarousel({
   };
   const { accentColor } = useTheme();
   return (
-    <div style={{ minHeight: "450px", marginTop: "4px", height: "550px" }}>
+    <div style={{  marginTop: "4px", height: "100%" }}>
       <div style={{ height: "100%", overflow: "hidden", position: "relative" }}>
         <div
           style={{
@@ -144,10 +144,10 @@ export default function EventCarousel({
                 <div
                   key={index}
                   style={{
-                    maxWidth: "390px",
-                    minWidth: "370px",
-                    aspectRatio: "1/1",
-                    height: "450px",
+                    maxWidth: "380px",
+                    minWidth: "380px",
+                    // aspectRatio: "1/1",
+                    height: "400px",
                   }}
                 >
                   {card(event, index)}
@@ -161,9 +161,9 @@ export default function EventCarousel({
                       key={index}
                       style={{
                         maxWidth: "380px",
-                        minWidth: "350px",
-                        aspectRatio: "1/1",
-                        height: "100%",
+                        minWidth: "380px",
+                        // aspectRatio: "1/1",
+                        height: "400px",
                       }}
                     >
                       {cardSkeleton}

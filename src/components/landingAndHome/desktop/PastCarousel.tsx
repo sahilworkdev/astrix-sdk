@@ -28,8 +28,8 @@ export default function PastCarousel() {
     <EventCarousel
       events={pastEvents}
       isLoading={loading}
-      // card={(item) => <LandingEventCard item={item} />}
-      card={(item) => <HomeEventCard item={item} />}
+      card={(item) => <LandingEventCard item={item} />}
+      // card={(item) => <HomeEventCard item={item} />}
       cardSkeleton={<p>loading,...</p>}
       hasMore={false}
       onScroll={fecthPastEvents}

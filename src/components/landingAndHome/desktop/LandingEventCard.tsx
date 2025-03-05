@@ -21,14 +21,12 @@ type Item = {
 };
 interface LandingEventCardProps {
   item: Item;
-  key: number;
-  backgroundColor: string;
-  fontFamily: string;
+  backgroundColor?: string;
+  fontFamily?: string;
 }
 
 const LandingEventCard = ({
   item,
-  key,
   backgroundColor = "gray",
   fontFamily,
 }: LandingEventCardProps) => {
@@ -36,7 +34,6 @@ const LandingEventCard = ({
 
   return (
     <div
-      key={key}
       style={{
         display: "flex",
         height: "100%",

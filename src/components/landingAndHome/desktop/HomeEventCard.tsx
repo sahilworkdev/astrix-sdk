@@ -3,7 +3,19 @@ import { useTheme } from "../../../providers/ThemeProvider";
 import { formatDateInIST, formatTimeInIST } from "../../../utils";
 import { FaCalendarAlt } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
-export default function HomeEventCard({ item, key }: any) {
+
+interface HomeEventCardProps {
+  item: any;
+  backgroundColor?: string;
+  fontFamily?: string;
+}
+
+export default function HomeEventCard({
+  item,
+
+  backgroundColor = "gray",
+  fontFamily,
+}: HomeEventCardProps) {
   const { accentColor } = useTheme();
 
   return (
@@ -11,11 +23,12 @@ export default function HomeEventCard({ item, key }: any) {
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "14px",
+        gap: "6px",
         height: "100%",
         width: "100%",
         borderRadius: "16px",
-        background: "#1f1f1f60",
+        background: `${backgroundColor}`,
+        fontFamily: `${fontFamily}`,
         cursor: "pointer",
         border: "1px solid #4e4f5080",
         boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
@@ -150,24 +163,28 @@ export default function HomeEventCard({ item, key }: any) {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "8px",
+            gap: "12px",
             fontSize: "0.75rem",
           }}
         >
-          <FaCalendarAlt style={{ color: `${accentColor}` }} size={20} />
-          <p>
-            {formatDateInIST(
-              item?.superEventId ? item?.superEventStartDate : item?.startDate
-            )}
-            &nbsp;|&nbsp;
-            {formatTimeInIST(
-              item?.superEventId ? item?.superEventStartDate : item?.startDate
-            )}
-          </p>
-          <IoLocationSharp style={{ color: `${accentColor}` }} size={20} />
-          <p>
-            {item?.venue} &nbsp;|&nbsp; {item?.location}
-          </p>
+          <div style={{ display: "flex", gap: "4px" }}>
+            <FaCalendarAlt style={{ color: `${accentColor}` }} size={20} />
+            <p>
+              {formatDateInIST(
+                item?.superEventId ? item?.superEventStartDate : item?.startDate
+              )}
+              &nbsp;|&nbsp;
+              {formatTimeInIST(
+                item?.superEventId ? item?.superEventStartDate : item?.startDate
+              )}
+            </p>
+          </div>
+          <div style={{ display: "flex", gap: "4px" }}>
+            <IoLocationSharp style={{ color: `${accentColor}` }} size={20} />
+            <p>
+              {item?.venue} &nbsp;|&nbsp; {item?.location}
+            </p>
+          </div>
         </div>
       </div>
     </div>
