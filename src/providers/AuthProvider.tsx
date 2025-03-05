@@ -109,7 +109,7 @@ export const AuthProvider = ({ children, token }: AuthProviderProps) => {
           setUserData(null);
         });
     }
-  }, [token]); // Depend on token, so it refetches if token changes
+  }, [token]);
 
   return (
     <AuthContext.Provider value={{ isAuthenticated, userData, token }}>
