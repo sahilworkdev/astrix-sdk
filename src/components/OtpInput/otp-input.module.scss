@@ -1,0 +1,22 @@
+.otp_wrapper{
+    display: flex;
+    gap:10px;
+    .centered{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        gap:10px;
+        background-color: #1F1F1F99;
+        .otp_input{
+            width: 40px;
+            height: 40px;
+            outline: none;
+            // border-bottom: 1px solid;/
+            font-size: 16px;
+            text-align: center;
+            cursor: text;
+            background-color: transparent;
+        }
+    }
+}

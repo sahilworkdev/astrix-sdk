@@ -1,28 +1,30 @@
-import React, { ReactElement, useCallback, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { LuCircleChevronLeft, LuCircleChevronRight } from "react-icons/lu";
 import { useTheme } from "../../../providers/ThemeProvider";
 import _ from "lodash";
+import LandingEventCard from "./LandingEventCard";
+import { getPastEvents } from "../../../backendServices";
+import { useAuth } from "../../../providers/AuthProvider";
 
-interface EventCarouselProps {
-  events: any[];
-  isLoading: boolean;
-  onScroll: () => void;
-  hasMore: boolean;
-  card: (item: any, index: number) => React.ReactNode;
-  cardSkeleton: ReactElement;
-  title: string;
-}
-
-export default function EventCarousel({
-  events,
-  isLoading,
-  onScroll,
-  hasMore,
-  card,
-  cardSkeleton,
-  title,
-}: EventCarouselProps) {
+export default function PastEventCarousel() {
+  const [pastEvents, setPastEvents] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const { token } = useAuth();
   const carouselRef = useRef<HTMLDivElement | null>(null);
+
+  const fetchPastEvents = async () => {
+    try {
+      setIsLoading(true);
+      const response = await getPastEvents(token);
+      setPastEvents(response.data);
+      console.log(">>>>>>>>>>>>>>>", pastEvents);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handleScroll = useCallback(
     _.throttle((event: any, type: "upcoming" | "past" = "upcoming") => {
@@ -38,10 +40,10 @@ export default function EventCarousel({
       const buffer = 450;
 
       if (scrollLeft + clientWidth >= scrollWidth - buffer) {
-        onScroll();
+        fetchPastEvents();
       }
     }, 500),
-    [events, isLoading]
+    [pastEvents, isLoading]
   );
 
   const handlemove = (direction: "left" | "right", DivRef: any) => {
@@ -59,8 +61,12 @@ export default function EventCarousel({
     }
   };
   const { accentColor } = useTheme();
+
+  useEffect(() => {
+    fetchPastEvents();
+  }, []);
   return (
-    <div style={{ minHeight: "450px", marginTop: "4px", height: "550px" }}>
+    <div style={{ height: "450px", marginTop: "4px" }}>
       <div style={{ height: "100%", overflow: "hidden", position: "relative" }}>
         <div
           style={{
@@ -88,9 +94,9 @@ export default function EventCarousel({
                 marginBottom: "1px",
               }}
             >
-              {title}
+              Past Events
             </p>
-            {events?.length > 0 && (
+            {pastEvents?.length > 0 && (
               <div
                 style={{
                   display: "flex",
@@ -119,10 +125,10 @@ export default function EventCarousel({
             )}
           </div>
 
-          <div style={{ height: "100%" }}>
-            {events?.length === 0 && !isLoading && (
+          <div>
+            {pastEvents?.length === 0 && !isLoading && (
               <p style={{ textAlign: "center", color: "#6B7280" }}>
-                No events found!
+                No Past events found!
               </p>
             )}
             <div
@@ -140,33 +146,25 @@ export default function EventCarousel({
               ref={carouselRef}
               id="scrollable-div"
             >
-              {events?.map((event: any, index) => (
-                <div
-                  key={index}
-                  style={{
-                    maxWidth: "390px",
-                    minWidth: "370px",
-                    aspectRatio: "1/1",
-                    height: "450px",
-                  }}
-                >
-                  {card(event, index)}
-                </div>
+              {pastEvents?.map((event: any, index) => (
+               <div key={index} style={{ maxWidth: "380px", minWidth: "350px", aspectRatio: "1/1", height: "100%" }}>
+                 <LandingEventCard item={event} key={index} />
+               </div>
               ))}
               {hasMore &&
-                new Array(isLoading ? 4 : events?.length > 4 ? 2 : 0)
+                new Array(isLoading ? 4 : pastEvents?.length > 4 ? 2 : 0)
                   .fill("")
                   .map((_, index) => (
                     <div
                       key={index}
                       style={{
-                        maxWidth: "380px",
-                        minWidth: "350px",
+                        maxWidth: "30%",
+                        minWidth: "30%",
                         aspectRatio: "1/1",
                         height: "100%",
                       }}
                     >
-                      {cardSkeleton}
+                      Loading...
                     </div>
                   ))}
             </div>
