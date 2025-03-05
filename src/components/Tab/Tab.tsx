@@ -8,7 +8,6 @@ const defaultList: ITab[] = [
 ];
 
 const Tab = ({
-  setActiveTab = () => {},
   defaultTab = "Home",
   activeTab = defaultTab,
   fontFamily = "Mulish",
@@ -41,12 +40,15 @@ const Tab = ({
               width: "100%",
               overflow: "hidden",
             }}
-            onClick={() => setActiveTab(tab.label)}
+            onClick={() => {
+              if (!props.setActiveTab) {
+                alert("Please provide a 'setActiveTab' handler");
+                return;
+              }
+              props?.setActiveTab(tab.label);
+            }}
           >
             <h4
-              onClick={() => {
-                tab.onClick(tab.label);
-              }}
               style={{
                 textAlign: "center",
                 fontFamily: fontFamily,
