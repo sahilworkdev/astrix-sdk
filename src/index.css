@@ -10,3 +10,22 @@
 body {
   font-family: "Mulish", sans-serif;
 }
+
+
+/* scroll  bar without track */
+.my_custom_scrollbar::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+.my_custom_scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.my_custom_scrollbar::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 0px;
+}
+.my_custom_scrollbar_width_zero::-webkit-scrollbar {
+  width: 0;
+}
