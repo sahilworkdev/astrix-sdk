@@ -3,7 +3,35 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { useTheme } from "../../../providers/ThemeProvider";
 import { formatDateInIST, formatTimeInIST } from "../../../utils";
 
-const LandingEventCard = ({ item, key }: any) => {
+type Item = {
+  superEventId: string;
+  superEventImages: {
+    "5_4": string[];
+    "16_9": string[];
+  };
+  images: {
+    "5_4": string[];
+    "16_9": string[];
+  };
+  title: string;
+  name: string;
+  startDate: string;
+  superEventName: string;
+  superEventStartDate: string;
+};
+interface LandingEventCardProps {
+  item: Item;
+  key: number;
+  backgroundColor: string;
+  fontFamily: string;
+}
+
+const LandingEventCard = ({
+  item,
+  key,
+  backgroundColor = "gray",
+  fontFamily,
+}: LandingEventCardProps) => {
   const { accentColor } = useTheme();
 
   return (
@@ -17,7 +45,8 @@ const LandingEventCard = ({ item, key }: any) => {
         justifyContent: "space-between",
         overflow: "hidden",
         borderRadius: "0.5rem",
-        background: "#14191F70",
+        background: `${backgroundColor}`,
+        fontFamily: `${fontFamily}`,
         padding: "0.75rem",
       }}
     >
@@ -27,42 +56,32 @@ const LandingEventCard = ({ item, key }: any) => {
           position: "relative",
           height: "100%",
           width: "100%",
-          borderRadius: "0.5rem",
+          borderRadius: "0.5rem 0.5rem 0 0",
+          overflow: "hidden",
           background:
             "linear-gradient(to bottom, rgba(20,25,31,0.7) 0%, rgba(20,25,31,0.7) 100%)",
         }}
       >
-        <div
+        <img
+          src={
+            (item && item?.superEventId
+              ? item?.superEventImages["5_4"]?.[0] ||
+                item?.superEventImages["16_9"]?.[0]
+              : item?.images &&
+                (item.images["5_4"]?.[0] || item.images["16_9"]?.[0])) ||
+            "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
+          }
+          alt=""
           style={{
-            position: "absolute",
-            zIndex: 0,
-            left: 0,
-            right: 0,
-            height: "300px",
+            zIndex: 10,
+            objectFit: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            borderRadius: "0.5rem 0.5rem 0 0",
+            height: "100%",
             width: "100%",
           }}
-        >
-          <img
-            src={
-              (item && item?.superEventId
-                ? item?.superEventImages["5_4"]?.[0] ||
-                  item?.superEventImages["16_9"]?.[0]
-                : item?.images &&
-                  (item.images["5_4"]?.[0] || item.images["16_9"]?.[0])) ||
-              "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
-            }
-            alt=""
-            style={{
-              zIndex: 10,
-              objectFit: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              borderRadius: "0.5rem 0.5rem 0 0",
-              height: "100%",
-              width: "100%",
-            }}
-          />
-        </div>
+        />
       </div>
 
       {/* details */}
@@ -73,9 +92,9 @@ const LandingEventCard = ({ item, key }: any) => {
           width: "100%",
 
           borderRadius: "0.5rem 0.5rem 0 0",
-          marginTop: "0.25rem",
+          marginTop: ".5rem",
           flexDirection: "column",
-          gap: "2px",
+          gap: "4px",
         }}
       >
         <p
