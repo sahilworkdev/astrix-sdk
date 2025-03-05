@@ -3,6 +3,7 @@ import { AuthProvider } from "./providers/AuthProvider";
 import { ThemeProvider } from "./providers/ThemeProvider";
 import "./index.css";
 import Tab from "./components/Tab/Tab";
+import Button from "./components/Button/button";
 
 
 
@@ -21,6 +22,7 @@ function App() {
             textSize={14}
             activeTabColor="black"
           />
+          <Button label="Get Started" style={{backgroundColor:"red", color:"green"}}/>
         </ThemeProvider>
       </AuthProvider>
     </>
