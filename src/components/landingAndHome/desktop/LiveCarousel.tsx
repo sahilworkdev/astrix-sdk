@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { getPastEvents } from "../../../backendServices";
 import { useAuth } from "../../../providers/AuthProvider";
 import EventCarousel from "./EventCarousel";
 import LandingEventCard from "./LandingEventCard";
 import HomeEventCard from "./HomeEventCard";
+import { getLiveEvents } from "../../../backendServices";
 
-export default function PastCarousel({ type = "landing" }) {
+export default function LiveCarousel({ type = "landing" }) {
   const [pastEvents, setPastEvents] = useState([]);
   const [loading, setLoading] = useState(false);
   const { token } = useAuth();
 
-  const fetchPastEvents = async () => {
+  const fetchLiveEvents = async () => {
     try {
       setLoading(true);
-      const response = await getPastEvents(token);
+      const response = await getLiveEvents(token);
       setPastEvents(response.data);
-      console.log("Past>>>>>>>>>>>>>>>", response.data);
+      console.log("Live >>>>>>>>>>>>>>>", response.data);
     } catch (err) {
       console.log(err);
     } finally {
@@ -24,7 +24,7 @@ export default function PastCarousel({ type = "landing" }) {
   };
 
   useEffect(() => {
-    fetchPastEvents();
+    fetchLiveEvents();
   }, []);
 
   return (
@@ -40,8 +40,8 @@ export default function PastCarousel({ type = "landing" }) {
       }
       cardSkeleton={<p>Loading...</p>}
       hasMore={false}
-      onScroll={fetchPastEvents}
-      title="Past Events"
+      onScroll={fetchLiveEvents}
+      title="Live and Upcoming Events"
     />
   );
 }

@@ -5,8 +5,7 @@ interface ButtonProps {
   onClick?: () => void;
   style?: React.CSSProperties;
 }
-
-const Button = ({ label, onClick, style }: ButtonProps) => {
+ const Button = ({ label, onClick, style }: ButtonProps) => {
   return (
     <>
       <button onClick={onClick} style={{ ...defaultStyle, ...style }}>

@@ -1,7 +1,7 @@
 import React from "react";
-import { formatDateInIST, formatTimeInIST } from "../../utils";
+import { formatDateInIST, formatTimeInIST } from "../../../utils";
 import { FaCalendarAlt } from "react-icons/fa";
-import { useTheme } from "../../providers/ThemeProvider";
+import { useTheme } from "../../../providers/ThemeProvider";
 
 const EventCard = ({ item, key }: any) => {
   const { accentColor } = useTheme();

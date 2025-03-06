@@ -1,5 +1,12 @@
 export { ThemeProvider, useTheme } from "./providers/ThemeProvider";
 export { AuthProvider, useAuth } from "./providers/AuthProvider";
 export { formatDateInIST, formatTimeInIST } from "./utils";
-export { default as EventCard } from "./components/eventCard/EventCard";
-export { default as PastEventsWrapper } from "./components/PastEventsWrapper";
+export { getPastEvents, getLiveEvents } from "./backendServices";
+// export { default as EventCard } from "./components/eventCard/EventCard";
+// export { default as PastEventsWrapper } from "./components/PastEventsWrapper";
+export { default as LandingEventCard } from "./components/landingAndHome/desktop/LandingEventCard";
+export { default as HomeEventCard } from "./components/landingAndHome/desktop/HomeEventCard";
+export { default as EventCarousel } from "./components/landingAndHome/desktop/EventCarousel";
+export { default as PastCarousel } from "./components/landingAndHome/desktop/PastCarousel";
+export { default as LiveCarousel } from "./components/landingAndHome/desktop/LiveCarousel";
+export { default as Button } from "./components/Button/Button";

@@ -60,7 +60,7 @@ export default function EventCarousel({
   };
   const { accentColor } = useTheme();
   return (
-    <div style={{  marginTop: "4px", height: "100%" }}>
+    <div style={{ marginTop: "4px", height: "100%" }}>
       <div style={{ height: "100%", overflow: "hidden", position: "relative" }}>
         <div
           style={{
