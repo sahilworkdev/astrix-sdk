@@ -1,9 +1,10 @@
 import React from "react";
-import { useTheme } from "../../../providers/ThemeProvider";
+
 import { FaCalendarAlt } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
 import Button from "../../Button/Button";
 import { formatDateInIST, formatTimeInIST } from "../../../utils";
+import { useTheme } from "../../../providers/types";
 
 const EventBanner = ({ item }: any) => {
   const { accentColor } = useTheme();
