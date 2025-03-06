@@ -1,0 +1,22 @@
+.capsule {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-radius: 999px;
+    height: 60px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    min-width: fit-content;
+    // background: linear-gradient(#b2b2b240, #62804806);
+    
+}
+
+
+.text {
+    font-family: "Mulish", sans-serif;
+    font-weight: 500;
+    line-height: 15px;
+    white-space: nowrap;
+}
