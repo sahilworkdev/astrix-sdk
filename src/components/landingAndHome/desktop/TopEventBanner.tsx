@@ -4,10 +4,12 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
 import Button from "../../Button/Button";
 import { formatDateInIST, formatTimeInIST } from "../../../utils";
-import { useTheme } from "../../../providers/types";
+import { useTheme } from "../../../providers/ThemeProvider";
 
-const EventBanner = ({ item }: any) => {
+const TopEventBanner = ({ item }: any) => {
   const { accentColor } = useTheme();
+
+  console.log("JJJJJJJJJJ", item);
   return (
     <div
       style={{
@@ -346,4 +348,4 @@ const EventBanner = ({ item }: any) => {
   );
 };
 
-export default EventBanner;
+export default TopEventBanner;
