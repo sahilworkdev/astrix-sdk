@@ -102,14 +102,23 @@ export default function TopEventsSlider({
       style={{
         position: "relative",
         overflowX: "hidden",
-        height: "100%",
         width: "100%",
         paddingBottom: "20px",
       }}
       ref={carouselRef}
     >
       {showArrows && (
-        <button onClick={handlePrev}>
+        <button
+          onClick={handlePrev}
+          style={{
+            position: "absolute",
+            left: 0,
+            zIndex: 50,
+            top: "45%",
+                 backgroundColor: "transparent",
+            border:"none"
+          }}
+        >
           <LuCircleChevronLeft stroke="#E8EAED" size={20} />
         </button>
       )}
@@ -134,7 +143,17 @@ export default function TopEventsSlider({
         ))}
       </div>
       {showArrows && (
-        <button onClick={handleNext}>
+        <button
+          onClick={handleNext}
+          style={{
+            position: "absolute",
+            zIndex: 50,
+            right: 0,
+            top: "45%",
+            backgroundColor: "transparent",
+            border:"none"
+          }}
+        >
           <LuCircleChevronRight stroke="#E8EAED" size={20} />
         </button>
       )}
