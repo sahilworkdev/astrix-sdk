@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { LuCircleChevronLeft, LuCircleChevronRight } from "react-icons/lu";
-import { useTheme } from "../../../providers/ThemeProvider";
-import _ from "lodash";
-import { getLiveEvents } from "../../../backendServices";
-import { useAuth } from "../../../providers/AuthProvider";
+// import { useTheme } from "@/providers/ThemeProvider";
+import { getLiveEvents } from "@/backendServices";
+import { COLORS } from "@/config";
+import { useAuth } from "@/providers/AuthProvider";
 import TopEventBanner from "./TopEventBanner";
 
 interface TopEventsSliderProps {
@@ -19,7 +19,7 @@ export default function TopEventsSlider({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemWidth, setItemWidth] = useState(0);
   const [reset, setReset] = useState(false);
-  const { accentColor } = useTheme();
+  // const { accentColor } = useTheme();
   const { token } = useAuth();
   const [loading, setLoading] = useState<boolean>(false);
   const [topEvents, setTopEvents] = useState([]);
@@ -27,14 +27,14 @@ export default function TopEventsSlider({
   const handleNext = () => {
     setReset(true);
     setCurrentIndex((prevIndex) =>
-      Math.min((prevIndex + 1) % topEvents.length, topEvents.length - 1)
+      Math.min((prevIndex + 1) % topEvents.length, topEvents.length - 1),
     );
   };
 
   const handlePrev = () => {
     setReset(true);
     setCurrentIndex((prevIndex) =>
-      Math.max((prevIndex - 1 + topEvents.length) % topEvents.length, 0)
+      Math.max((prevIndex - 1 + topEvents.length) % topEvents.length, 0),
     );
   };
 
@@ -49,7 +49,7 @@ export default function TopEventsSlider({
     const loop = () => {
       interval = setInterval(() => {
         setCurrentIndex((prevIndex) =>
-          Math.min((prevIndex + 1) % topEvents.length, topEvents.length - 1)
+          Math.min((prevIndex + 1) % topEvents.length, topEvents.length - 1),
         );
       }, 3000);
     };
@@ -112,14 +112,15 @@ export default function TopEventsSlider({
           onClick={handlePrev}
           style={{
             position: "absolute",
-            left: 0,
+            left: 2,
             zIndex: 50,
             top: "45%",
-                 backgroundColor: "transparent",
-            border:"none"
+            backgroundColor: "transparent",
+            border: "none",
+            cursor: "pointer",
           }}
         >
-          <LuCircleChevronLeft stroke="#E8EAED" size={20} />
+          <LuCircleChevronLeft stroke="#E8EAED" size={28} />
         </button>
       )}
       <div
@@ -148,13 +149,14 @@ export default function TopEventsSlider({
           style={{
             position: "absolute",
             zIndex: 50,
-            right: 0,
+            right: 2,
             top: "45%",
             backgroundColor: "transparent",
-            border:"none"
+            border: "none",
+            cursor: "pointer",
           }}
         >
-          <LuCircleChevronRight stroke="#E8EAED" size={20} />
+          <LuCircleChevronRight stroke="#E8EAED" size={28} />
         </button>
       )}
       {/* Dots navigation */}
@@ -170,17 +172,17 @@ export default function TopEventsSlider({
           zIndex: 20,
         }}
       >
-        {topEvents.map((_: any, index: number) => (
+        {topEvents.map((_, index: number) => (
           <button
             key={index}
             onClick={() => handleDotClick(index)}
             style={{
               width: "12px",
               height: "12px",
-              border: `1px solid ${accentColor}`,
+              border: `1px solid ${COLORS.base}`,
               borderRadius: "50%",
               backgroundColor:
-                currentIndex === index ? accentColor : "rgba(20, 25, 31, 0.5)",
+                currentIndex === index ? COLORS.base : "rgba(20, 25, 31, 0.5)",
             }}
           />
         ))}

@@ -6,6 +6,7 @@ import React, {
   ReactNode,
 } from "react";
 import axios from "axios";
+import { USER_API_URI } from "../config";
 
 interface AuthContextType {
   token: string;
@@ -35,12 +36,9 @@ export const AuthProvider = ({ children, token }: AuthProviderProps) => {
   useEffect(() => {
     if (token) {
       axios
-        .get(
-          "https://astrix-auth-staging62d3.azurewebsites.net/getUserProfile",
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        )
+        .get(USER_API_URI, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
         .then((response) => {
           console.log(response.data);
           setIsAuthenticated(true);

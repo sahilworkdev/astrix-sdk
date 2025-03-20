@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes, CSSProperties } from "react";
-import { COLORS } from "../../config";
+import { COLORS } from "@/config";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary";

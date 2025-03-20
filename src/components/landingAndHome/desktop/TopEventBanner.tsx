@@ -1,10 +1,12 @@
 import React from "react";
 
+import Button from "@/components/general/Button";
+import Tag from "@/components/general/Tag";
+import { COLORS } from "@/config";
+import { useTheme } from "@/providers/ThemeProvider";
+import { formatDateInIST, formatTimeInIST } from "@/utils";
 import { FaCalendarAlt } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
-import Button from "../../general/Button";
-import { formatDateInIST, formatTimeInIST } from "../../../utils";
-import { useTheme } from "../../../providers/ThemeProvider";
 
 const TopEventBanner = ({ item }: any) => {
   const { accentColor } = useTheme();
@@ -14,7 +16,7 @@ const TopEventBanner = ({ item }: any) => {
       style={{
         width: "100%",
         display: "flex",
-        backgroundColor: "gray",
+        backgroundColor: COLORS.dark,
         borderRadius: "0.5rem",
         height: "450px",
       }}
@@ -68,7 +70,7 @@ const TopEventBanner = ({ item }: any) => {
               borderRadius: "50%",
               height: "30px",
               width: "30px",
-              border: `1px solid ${accentColor}`,
+              border: `1px solid ${COLORS.base}`,
               overflow: "hidden",
             }}
           >
@@ -103,8 +105,8 @@ const TopEventBanner = ({ item }: any) => {
             {item?.superEventId
               ? item?.superEventName
               : item?.title
-              ? item?.title
-              : item?.name}
+                ? item?.title
+                : item?.name}
           </h2>
         </div>
         <div
@@ -121,9 +123,10 @@ const TopEventBanner = ({ item }: any) => {
             marginTop: "-0.25rem",
             paddingBottom: "0.25rem",
           }}
-        >
-          {item?.description}
-        </div>
+          dangerouslySetInnerHTML={{
+            __html: item?.description || "",
+          }}
+        />
         <div
           style={{
             display: "flex",
@@ -135,23 +138,7 @@ const TopEventBanner = ({ item }: any) => {
           }}
         >
           {item?.tags.map((tag: string, index: number) => (
-            <span
-              key={index}
-              style={{
-                display: "inline-block",
-                padding: "4px 14px",
-                borderRadius: "30px",
-                border: `1px solid ${accentColor}`,
-                alignItems: "center",
-                justifyContent: "center",
-                whiteSpace: "nowrap",
-                fontWeight: 500,
-                fontSize: "0.875rem",
-                color: "#E8EAED",
-              }}
-            >
-              {tag}
-            </span>
+            <Tag key={index} label={tag} />
           ))}
         </div>
 
@@ -231,7 +218,15 @@ const TopEventBanner = ({ item }: any) => {
         }}
       >
         {/* date and location */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "32px",
+            fontWeight: 400,
+            fontSize: "1rem",
+          }}
+        >
           {/* starting date */}
           <div
             style={{
@@ -241,34 +236,30 @@ const TopEventBanner = ({ item }: any) => {
               justifyContent: "start",
             }}
           >
-            <FaCalendarAlt style={{ color: `${accentColor}` }} size={20} />
+            <FaCalendarAlt style={{ color: COLORS.base }} size={24} />
             <div
               style={{
                 display: "flex",
                 gap: "2px",
                 flexDirection: "column",
-                fontWeight: 400,
-                fontSize: "18px",
-                color: "#CCD0D7",
               }}
             >
-              <span>Starts On</span>
+              <span style={{ color: COLORS.gray300 }}>Starts On</span>
               <span
                 style={{
-                  color: "#CCD0D7",
+                  color: COLORS.gray100,
                 }}
               >
-                {" "}
                 {formatDateInIST(
                   item?.superEventId
                     ? item?.superEventStartDate
-                    : item?.startDate
+                    : item?.startDate,
                 )}
                 &nbsp;|&nbsp;
                 {formatTimeInIST(
                   item?.superEventId
                     ? item?.superEventStartDate
-                    : item?.startDate
+                    : item?.startDate,
                 )}
               </span>
             </div>
@@ -280,33 +271,27 @@ const TopEventBanner = ({ item }: any) => {
               gap: "10px",
               alignItems: "start",
               justifyContent: "start",
-              fontWeight: 400,
-              fontSize: "16px",
-              color: "#CCD0D7",
             }}
           >
-            <FaCalendarAlt style={{ color: `${accentColor}` }} size={20} />
+            <FaCalendarAlt style={{ color: COLORS.base }} size={24} />
             <div
               style={{
                 display: "flex",
                 gap: "2px",
                 flexDirection: "column",
-                fontWeight: 300,
-                fontSize: "16px",
-                color: "#CCD0D7",
               }}
             >
-              <span>Closing On</span>
-              <span>
+              <span style={{ color: COLORS.gray300 }}>Closing On</span>
+              <span style={{ color: COLORS.gray100 }}>
                 {item?.metaData?.showEndDate
                   ? `${formatDateInIST(
                       item?.superEventId
                         ? item?.superEventEndDate
-                        : item?.endDate
+                        : item?.endDate,
                     )} \u00A0|\u00A0 ${formatTimeInIST(
                       item?.superEventId
                         ? item?.superEventEndDate
-                        : item?.endDate
+                        : item?.endDate,
                     )}`
                   : "Onwards"}
               </span>
@@ -314,7 +299,7 @@ const TopEventBanner = ({ item }: any) => {
           </div>
           {/* location */}
           <div style={{ display: "flex", gap: "10px", alignItems: "start" }}>
-            <IoLocationSharp style={{ color: `${accentColor}` }} size={20} />
+            <IoLocationSharp style={{ color: COLORS.base }} size={24} />
             <div
               style={{
                 whiteSpace: "nowrap",
@@ -322,15 +307,16 @@ const TopEventBanner = ({ item }: any) => {
                 overflow: "hidden",
                 display: "flex",
                 flexDirection: "column",
-                fontWeight: 300,
-                fontSize: "16px",
-                color: "#CCD0D7",
               }}
             >
               <a
                 href={`https://maps.google.com/maps?q=${item?.venue}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                style={{
+                  textDecoration: "none",
+                  color: COLORS.gray100,
+                }}
               >
                 {item.venue}
               </a>
@@ -338,14 +324,7 @@ const TopEventBanner = ({ item }: any) => {
           </div>
         </div>
 
-        <Button
-          label="Book Tickets"
-          onClick={() => {}}
-          style={{
-            backgroundColor: `${accentColor}`,
-            border: "0px",
-          }}
-        />
+        <Button>Book Tickets</Button>
       </div>
     </div>
   );
