@@ -9,7 +9,6 @@ import { useTheme } from "../../../providers/ThemeProvider";
 const TopEventBanner = ({ item }: any) => {
   const { accentColor } = useTheme();
 
-  console.log("JJJJJJJJJJ", item);
   return (
     <div
       style={{
@@ -249,12 +248,14 @@ const TopEventBanner = ({ item }: any) => {
                 gap: "2px",
                 flexDirection: "column",
                 fontWeight: 400,
-                fontSize: "16px",
+                fontSize: "18px",
                 color: "#CCD0D7",
               }}
             >
               <span>Starts On</span>
-              <span>
+              <span style={{
+                 color: "#CCD0D7",
+              }}>
                 {" "}
                 {formatDateInIST(
                   item?.superEventId
