@@ -21,7 +21,7 @@ const Survey = () => {
           padding: "10px",
         }}
       >
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", maxHeight:"20%" }}>
           <p style={{ color: "#CCD0D7", fontSize: "28px", fontWeight: "500" }}>
             Survey
           </p>
@@ -29,10 +29,10 @@ const Survey = () => {
             x
           </p>
         </div>
-        <div style={{ marginTop: "20px" }}>
+        <div style={{ marginTop: "20px", overflow:"auto", height:"80%" }}>
           <EventTicket />
         </div>
-        <div>
+        <div style={{maxHeight:"20%" }}>
           <Btns />
         </div>
       </div>
