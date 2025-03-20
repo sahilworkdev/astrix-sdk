@@ -3,6 +3,7 @@ import { AuthProvider } from "./providers/AuthProvider";
 import { ThemeProvider } from "./providers/ThemeProvider";
 import "./index.css";
 import TopEventsSlider from "./components/landingAndHome/desktop/TopEventsSlider";
+import Tag from "./components/general/Tag";
 function App() {
   return (
     <div style={{ background: "black", height: "100vh" }}>
@@ -10,6 +11,7 @@ function App() {
         <ThemeProvider accentColor={import.meta.env.VITE_ACCENT_COLOR}>
           {/* <h1 style={{ textAlign: "center" }}>Astrix</h1> */}
           <TopEventsSlider showArrows={true} type="desktop" />
+          <Tag label="tag tag" style={{ width: "80px" }} />
         </ThemeProvider>
       </AuthProvider>
     </div>
