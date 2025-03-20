@@ -2,7 +2,7 @@ import React from "react";
 
 import { FaCalendarAlt } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
-import Button from "../../Button/Button";
+import Button from "../../general/Button";
 import { formatDateInIST, formatTimeInIST } from "../../../utils";
 import { useTheme } from "../../../providers/ThemeProvider";
 
@@ -253,9 +253,11 @@ const TopEventBanner = ({ item }: any) => {
               }}
             >
               <span>Starts On</span>
-              <span style={{
-                 color: "#CCD0D7",
-              }}>
+              <span
+                style={{
+                  color: "#CCD0D7",
+                }}
+              >
                 {" "}
                 {formatDateInIST(
                   item?.superEventId

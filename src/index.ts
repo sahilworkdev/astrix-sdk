@@ -9,4 +9,4 @@ export { default as HomeEventCard } from "./components/landingAndHome/desktop/Ho
 export { default as EventCarousel } from "./components/landingAndHome/desktop/EventCarousel";
 export { default as PastCarousel } from "./components/landingAndHome/desktop/PastCarousel";
 export { default as LiveCarousel } from "./components/landingAndHome/desktop/LiveCarousel";
-export { default as Button } from "./components/Button/Button";
+export { default as Button } from "./components/general/Button";
