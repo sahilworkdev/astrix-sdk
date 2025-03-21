@@ -2,10 +2,7 @@ import React from "react";
 
 export const BillSummary = ({ styles }: any) => {
   return (
-    <div
-      style={{
-      }}
-    >
+    <div style={{}}>
       {/* Title */}
       <h2
         style={{
@@ -23,8 +20,8 @@ export const BillSummary = ({ styles }: any) => {
           flexDirection: "column",
           gap: "12px",
           borderBottom: "1px solid #31373F",
-          borderTop: "1px solid #31373F",       
-        padding: "16px 0px",
+          borderTop: "1px solid #31373F",
+          padding: "16px 0px",
         }}
       >
         {/* Price Details */}
@@ -169,38 +166,36 @@ export const BillSummary = ({ styles }: any) => {
             </span>
           </div>
         </div>
-
-
       </div>
-              {/* Final Amount */}
-              <div
+      {/* Final Amount */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          fontSize: "16px",
+          fontWeight: "bold",
+          paddingTop: "10px",
+        }}
+      >
+        <span
           style={{
-            display: "flex",
-            justifyContent: "space-between",
-            fontSize: "16px",
-            fontWeight: "bold",
-            paddingTop:"10px"
+            color: styles.totalAmountAndPayTagColor,
+            fontSize: styles.totalAmountAndPayTagSize,
+            fontWeight: styles.tickeCountAndPriceWeight,
           }}
         >
-          <span
-            style={{
-              color: styles.totalAmountAndPayTagColor,
-              fontSize: styles.totalAmountAndPayTagSize,
-              fontWeight: styles.tickeCountAndPriceWeight,
-            }}
-          >
-            Amount to be Paid
-          </span>
-          <span
-            style={{
-              color: styles.totalAmountAndPayValueColor,
-              fontSize: styles.totalAmountAndPayValueSize,
-              fontWeight: styles.totalAmountAndPayValueWeight,
-            }}
-          >
-            ₹3998
-          </span>
-        </div>
+          Amount to be Paid
+        </span>
+        <span
+          style={{
+            color: styles.totalAmountAndPayValueColor,
+            fontSize: styles.totalAmountAndPayValueSize,
+            fontWeight: styles.totalAmountAndPayValueWeight,
+          }}
+        >
+          ₹3998
+        </span>
+      </div>
     </div>
   );
 };

@@ -46,6 +46,11 @@ const YouCart = () => {
         totalAmountAndPayValueWeight:"700",
     }
 
+    const paymentStyles = {
+        textColor:"#E8EAED",
+        textSize:"16px",
+        textWeight:"400",
+    }
 
   return (
     <div style={{border:"1px solid #31373F66", backgroundColor:"#1F1F1F99", padding:"10px 15px", borderRadius:"12px"}}>

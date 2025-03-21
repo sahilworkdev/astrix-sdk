@@ -3,6 +3,11 @@ import YouCart from './YouCart'
 import PaymentSelection from './PaymentSelection'
 
 const CartHead = () => {
+  const paymentStyles = {
+    textColor:"#E8EAED",
+    textSize:"16px",
+    textWeight:"400",
+}
 
 
 
@@ -10,7 +15,7 @@ const CartHead = () => {
     <div style={{display:"flex", gap:"10px", padding:"20px", overflow:"auto", height:"100%"}}>
         <div style={{width:"40%"}}><YouCart /></div>
         <div style={{width:"60%"}}>
-            <PaymentSelection />
+            <PaymentSelection  styles={paymentStyles} />
         </div>
     </div>
   )
