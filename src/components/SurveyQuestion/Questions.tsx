@@ -1,6 +1,11 @@
 import React from "react";
 
 const Questions = (props: any) => {
+
+    const onChange = (event: any) => {
+        props.setFomrData()
+    }
+
   return (
     <div
       style={{
@@ -11,7 +16,7 @@ const Questions = (props: any) => {
       }}
     >
       <div style={{ display: "flex", gap: "5px", alignItems: "center" }}>
-        <p style={{ color: "#F6F2FF", fontSize: "18px", fontWeight: "400" }}>
+        <p style={{ color: props.styles.questionTextColor, fontSize: props.styles.questionTextFontSize, fontWeight:props.styles.questionTextWeight }}>
           Questions ?
         </p>
         <p style={{ color: "red", fontSize: "16px", fontWeight: "400" }}>*</p>
@@ -21,9 +26,9 @@ const Questions = (props: any) => {
           <input
             style={{
               outline: "none",
-              color: "#768293",
-              fontSize: "16px",
-              fontWeight: "600",
+              color: props.styles.answerTextColor,
+              fontSize: props.styles.answerTextSize,
+              fontWeight: props.styles.answerTextWeight,
               border: "none",
               borderBottom: "1px solid #48505B",
               backgroundColor: "transparent",
@@ -32,6 +37,9 @@ const Questions = (props: any) => {
             }}
             type={props.questionType}
             placeholder="Type your answer here"
+            name={props.name}
+            value={props.value}
+            onChange={props.onChange}
           />
         )}
 
@@ -49,6 +57,9 @@ const Questions = (props: any) => {
               width: "100%",
             }}
             placeholder="Type your answer here"
+            name={props.name}
+            value={props.value}
+            onChange={props.onChange}
           />
         )}
         <div style={{display:"flex", flexDirection:"column", gap:"5px"}}>
@@ -76,6 +87,9 @@ const Questions = (props: any) => {
                     fontWeight: "600",
                     backgroundColor: "transparent",
                   }}
+                  name={props.name}
+                  value={item}
+                  onChange={props.onChange}
                 />
                 <p
                   style={{
@@ -107,7 +121,6 @@ const Questions = (props: any) => {
               >
                 <input
                   type="radio"
-                  name={props.name}
                   style={{
                     marginLeft: "5px",
                     color: "#768293",
@@ -117,6 +130,8 @@ const Questions = (props: any) => {
                     backgroundColor: "transparent",
                   }}
                   value={item}
+                  name={props.name}
+                  onChange={props.onChange}
                 />
                 <span style={{
                     color: "#FFFFFF",
@@ -141,6 +156,9 @@ const Questions = (props: any) => {
               padding: "10px",
               width: "100%",
             }}
+            name={props.name}
+            value={props.value}
+            onChange={props.onChange}
           />
         )}
       </div>

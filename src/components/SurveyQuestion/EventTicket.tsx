@@ -1,10 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Questions from './Questions'
 import Btns from './Btns'
 
 const EventTicket = () => {
 
+    const [formData, setFormData] = useState({
+        q1:"",
+        q2:"",
+        q3:"",
+        q4:"",
+        q5:"",
+    })
+
+    const onChange = (e:any) => {
+        setFormData({...formData, [e.target.name]: e.target.value })
+    }
+
+    console.log(formData,"form")
+
     const checkboxList = ["optionOne", "optionTwo", "optionThree", "optionFour", "optionFive"]
+    const queStyles = {
+        questionTextColor:"#F6F2FF",
+        questionTextFontSize:"18px",
+        questionTextWeight:"400", 
+        answerTextColor:"#768293",
+        answerTextFontSize:"16px",
+        answerTextWeight:"600",
+    }
 
   return (
     <div>
@@ -17,19 +39,19 @@ const EventTicket = () => {
         </div>
         <div style={{marginTop:"20px", display:"flex", flexDirection:"column", gap:"10px"}}>
             <div>
-                <Questions questionType="checkbox" name="q" checkboxList = {checkboxList} />
+                <Questions questionType="checkbox" checkboxList = {checkboxList} styles={queStyles} onChange={onChange} name={"q1"} value={formData.q1} />
             </div>
             <div>
-                <Questions questionType="radio" name="q" radioList = {checkboxList} />
+                <Questions questionType="radio"  radioList = {checkboxList} styles={queStyles} onChange={onChange} name={"q2"} value={formData.q2}/>
             </div>
             <div>
-                <Questions questionType="text" name="q" radioList = {checkboxList} />
+                <Questions questionType="text"  radioList = {checkboxList} styles={queStyles} onChange={onChange} name={"q3"} value={formData.q3}/>
             </div>
             <div>
-                <Questions questionType="textarea" name="q" radioList = {checkboxList} />
+                <Questions questionType="textarea" radioList = {checkboxList}  styles={queStyles} onChange={onChange} name={"q4"} value={formData.q4}/>
             </div>
             <div>
-                <Questions questionType="date" name="q" radioList = {checkboxList} />
+                <Questions questionType="date" radioList = {checkboxList} styles={queStyles} onChange={onChange}  name={"q5"} value={formData.q5}/>
             </div>
         </div>
 
