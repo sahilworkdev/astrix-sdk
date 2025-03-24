@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "@/components/general/Button";
-import Tag from "@/components/general/Tag";
-import { useTheme } from "@/providers/ThemeProvider";
-import { formatDateInIST, formatTimeInIST } from "@/utils";
+import Button from "../../general/Button";
+import Tag from '../../general/Tag'
+import { useTheme } from "../../../providers/ThemeProvider";
+import { formatDateInIST, formatTimeInIST } from "../../../utils";
 import { FaCalendarAlt } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
 

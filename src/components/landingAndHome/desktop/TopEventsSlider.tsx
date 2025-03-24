@@ -1,9 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { LuCircleChevronLeft, LuCircleChevronRight } from "react-icons/lu";
-// import { useTheme } from "@/providers/ThemeProvider";
-import { getLiveEvents } from "@/backendServices";
-// import { COLORS } from "@/config";
-import { useAuth } from "@/providers/AuthProvider";
+import { getLiveEvents } from "../../../backendServices";
+import { useAuth } from "../../../providers/AuthProvider";
 import TopEventBanner from "./TopEventBanner";
 
 interface TopEventsSliderProps {
@@ -27,14 +25,14 @@ export default function TopEventsSlider({
   const handleNext = () => {
     setReset(true);
     setCurrentIndex((prevIndex) =>
-      Math.min((prevIndex + 1) % topEvents.length, topEvents.length - 1),
+      Math.min((prevIndex + 1) % topEvents.length, topEvents.length - 1)
     );
   };
 
   const handlePrev = () => {
     setReset(true);
     setCurrentIndex((prevIndex) =>
-      Math.max((prevIndex - 1 + topEvents.length) % topEvents.length, 0),
+      Math.max((prevIndex - 1 + topEvents.length) % topEvents.length, 0)
     );
   };
 
@@ -49,7 +47,7 @@ export default function TopEventsSlider({
     const loop = () => {
       interval = setInterval(() => {
         setCurrentIndex((prevIndex) =>
-          Math.min((prevIndex + 1) % topEvents.length, topEvents.length - 1),
+          Math.min((prevIndex + 1) % topEvents.length, topEvents.length - 1)
         );
       }, 3000);
     };
