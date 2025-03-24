@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { LuCircleChevronLeft, LuCircleChevronRight } from "react-icons/lu";
 // import { useTheme } from "@/providers/ThemeProvider";
 import { getLiveEvents } from "@/backendServices";
-import { COLORS } from "@/config";
+// import { COLORS } from "@/config";
 import { useAuth } from "@/providers/AuthProvider";
 import TopEventBanner from "./TopEventBanner";
 
@@ -179,10 +179,10 @@ export default function TopEventsSlider({
             style={{
               width: "12px",
               height: "12px",
-              border: `1px solid ${COLORS.base}`,
+              border: `1px solid #B0E681`,
               borderRadius: "50%",
               backgroundColor:
-                currentIndex === index ? COLORS.base : "rgba(20, 25, 31, 0.5)",
+                currentIndex === index ? "B0E681" : "rgba(20, 25, 31, 0.5)",
             }}
           />
         ))}

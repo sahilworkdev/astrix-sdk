@@ -1,8 +1,6 @@
 import React from "react";
-
 import Button from "@/components/general/Button";
 import Tag from "@/components/general/Tag";
-import { COLORS } from "@/config";
 import { useTheme } from "@/providers/ThemeProvider";
 import { formatDateInIST, formatTimeInIST } from "@/utils";
 import { FaCalendarAlt } from "react-icons/fa";
@@ -16,7 +14,7 @@ const TopEventBanner = ({ item }: any) => {
       style={{
         width: "100%",
         display: "flex",
-        backgroundColor: COLORS.dark,
+        backgroundColor: "#0E0F0C",
         borderRadius: "0.5rem",
         height: "450px",
       }}
@@ -70,7 +68,7 @@ const TopEventBanner = ({ item }: any) => {
               borderRadius: "50%",
               height: "30px",
               width: "30px",
-              border: `1px solid ${COLORS.base}`,
+              border: `1px solid #B0E681`,
               overflow: "hidden",
             }}
           >
@@ -236,7 +234,7 @@ const TopEventBanner = ({ item }: any) => {
               justifyContent: "start",
             }}
           >
-            <FaCalendarAlt style={{ color: COLORS.base }} size={24} />
+            <FaCalendarAlt style={{ color: "#B0E681" }} size={24} />
             <div
               style={{
                 display: "flex",
@@ -244,10 +242,10 @@ const TopEventBanner = ({ item }: any) => {
                 flexDirection: "column",
               }}
             >
-              <span style={{ color: COLORS.gray300 }}>Starts On</span>
+              <span style={{ color: "#939CAA" }}>Starts On</span>
               <span
                 style={{
-                  color: COLORS.gray100,
+                  color: "#CCD0D7",
                 }}
               >
                 {formatDateInIST(
@@ -273,7 +271,7 @@ const TopEventBanner = ({ item }: any) => {
               justifyContent: "start",
             }}
           >
-            <FaCalendarAlt style={{ color: COLORS.base }} size={24} />
+            <FaCalendarAlt style={{ color: "#B0E681" }} size={24} />
             <div
               style={{
                 display: "flex",
@@ -281,8 +279,8 @@ const TopEventBanner = ({ item }: any) => {
                 flexDirection: "column",
               }}
             >
-              <span style={{ color: COLORS.gray300 }}>Closing On</span>
-              <span style={{ color: COLORS.gray100 }}>
+              <span style={{ color: "#939CAA" }}>Closing On</span>
+              <span style={{ color: "#CCD0D7" }}>
                 {item?.metaData?.showEndDate
                   ? `${formatDateInIST(
                       item?.superEventId
@@ -299,7 +297,7 @@ const TopEventBanner = ({ item }: any) => {
           </div>
           {/* location */}
           <div style={{ display: "flex", gap: "10px", alignItems: "start" }}>
-            <IoLocationSharp style={{ color: COLORS.base }} size={24} />
+            <IoLocationSharp style={{ color: "#B0E681" }} size={24} />
             <div
               style={{
                 whiteSpace: "nowrap",
@@ -315,7 +313,7 @@ const TopEventBanner = ({ item }: any) => {
                 rel="noopener noreferrer"
                 style={{
                   textDecoration: "none",
-                  color: COLORS.gray100,
+                  color: "#CCD0D7",
                 }}
               >
                 {item.venue}

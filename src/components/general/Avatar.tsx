@@ -1,5 +1,5 @@
 import React, { CSSProperties } from "react";
-import { COLORS } from "@/config";
+
 
 interface AvatarProps {
   style?: CSSProperties;
@@ -10,7 +10,7 @@ export default function Avatar({ style, imgSrc }: AvatarProps) {
   return (
     <div
       style={{
-        border: `2px solid ${COLORS.base}`,
+        border: `2px solid #B0E681`,
         borderRadius: 100,
         width: "40px",
         height: "40px",

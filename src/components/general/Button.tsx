@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes, CSSProperties } from "react";
-import { COLORS } from "@/config";
+// import { COLORS } from "@/config";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary";
@@ -28,15 +28,15 @@ const Button: React.FC<ButtonProps> = ({
   const handleMouseEnter = (e: React.MouseEvent<HTMLButtonElement>) => {
     const target = e.currentTarget;
     target.style.backgroundColor =
-      variant === "primary" ? COLORS.baseHover : COLORS.base;
-    target.style.color = variant === "primary" ? COLORS.dark : COLORS.dark;
+      variant === "primary" ? "#CAEFA7" : "#B0E681";
+    target.style.color = variant === "primary" ? "#0E0F0C" : "#B0E681";
   };
 
   const handleMouseLeave = (e: React.MouseEvent<HTMLButtonElement>) => {
     const target = e.currentTarget;
     target.style.backgroundColor =
-      variant === "primary" ? COLORS.base : COLORS.dark;
-    target.style.color = variant === "primary" ? COLORS.dark : COLORS.base;
+      variant === "primary" ? "#B0E681" : "#0E0F0C";
+    target.style.color = variant === "primary" ? "#0E0F0C" : "#B0E681";
   };
 
   return (
@@ -70,13 +70,13 @@ const baseStyles: CSSProperties = {
 
 const variants: Record<"primary" | "secondary", CSSProperties> = {
   primary: {
-    backgroundColor: COLORS.base,
-    color: COLORS.dark,
+    backgroundColor: "#B0E681",
+    color: "#0E0F0C",
   },
   secondary: {
-    backgroundColor: COLORS.dark,
-    color: COLORS.base,
-    border: `2px solid ${COLORS.base}`,
+    backgroundColor: "#0E0F0C",
+    color: "#B0E681",
+    border: `2px solid #B0E681`,
   },
 };
 
