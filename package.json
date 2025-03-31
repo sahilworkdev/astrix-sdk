@@ -22,11 +22,13 @@
   "author": "Sahil",
   "license": "MIT",
   "dependencies": {
+    "@reduxjs/toolkit": "^2.6.1",
     "axios": "^1.8.1",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.5.0",
+    "react-redux": "^9.2.0",
     "sass": "^1.85.1"
   },
   "devDependencies": {

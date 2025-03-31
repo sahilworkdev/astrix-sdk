@@ -22,10 +22,11 @@ const Ticket: React.FC = () => {
     <div
       style={{
         display: "flex",
+        marginTop:"5px",
       }}
     >
       {/* Left side - Image */}
-      <div style={{ backgroundColor: "#1F1F1F", display:"flex", justifyContent:"center", alignItems:"center", borderLeft:"12px", padding:"10px" }}>
+      <div style={{ backgroundColor: "#1F1F1F", display:"flex", justifyContent:"center", alignItems:"center", border:"1px solid #272833", borderTopLeftRadius:"12px", borderBottomLeftRadius:"12px", padding:"10px" }}>
         <img
           src="/vite.svg"
           alt="Concert"
@@ -41,7 +42,7 @@ const Ticket: React.FC = () => {
       <div>
         <Details styles={detailStyles} />
       </div>
-      <div style={{ backgroundColor: "#1F1F1F", display:"flex", justifyContent:"center", alignItems:"center", borderRight:"12px", padding:"10px" }}>
+      <div style={{ backgroundColor: "#1F1F1F", display:"flex", justifyContent:"center", alignItems:"center", border:"1px solid #272833", borderTopRightRadius:"12px", borderBottomRightRadius:"12px", padding:"10px" }}>
         <img
           src="/vite.svg"
           alt="Concert"

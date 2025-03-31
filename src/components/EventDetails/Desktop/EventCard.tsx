@@ -7,7 +7,7 @@ const EventCard = ({ styles, data, currentData }: any) => {
         display: "flex",
         gap: "16px",
         padding: "16px",
-        background: "#111",
+        background: `linear-gradient(to top left, ${styles.backgroundColor}, ${styles.backgroundColorTo})`,
         borderRadius: "12px",
       }}
     >

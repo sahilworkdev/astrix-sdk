@@ -30,6 +30,7 @@ export const BillSummary = ({ styles }: any) => {
             style={{
               display: "flex",
               justifyContent: "space-between",
+              gap:"20px",
               marginBottom: "8px",
               fontSize: "14px",
               color: "#bbb",
@@ -58,6 +59,7 @@ export const BillSummary = ({ styles }: any) => {
             style={{
               display: "flex",
               justifyContent: "space-between",
+              gap:"20px",
               marginBottom: "8px",
               fontSize: "14px",
               color: "#bbb",
@@ -86,6 +88,7 @@ export const BillSummary = ({ styles }: any) => {
             style={{
               display: "flex",
               justifyContent: "space-between",
+              gap:"20px",
               marginBottom: "8px",
               fontSize: "14px",
               color: "#bbb",
@@ -114,6 +117,7 @@ export const BillSummary = ({ styles }: any) => {
             style={{
               display: "flex",
               justifyContent: "space-between",
+              gap:"20px",
               marginBottom: "8px",
               fontSize: "14px",
               color: "#bbb",
@@ -142,6 +146,7 @@ export const BillSummary = ({ styles }: any) => {
             style={{
               display: "flex",
               justifyContent: "space-between",
+              gap:"20px",
               fontWeight: "bold",
               fontSize: "16px",
             }}
@@ -172,6 +177,7 @@ export const BillSummary = ({ styles }: any) => {
         style={{
           display: "flex",
           justifyContent: "space-between",
+          gap:"20px",
           fontSize: "16px",
           fontWeight: "bold",
           paddingTop: "10px",

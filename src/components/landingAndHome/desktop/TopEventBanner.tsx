@@ -5,9 +5,18 @@ import { useTheme } from "../../../providers/ThemeProvider";
 import { formatDateInIST, formatTimeInIST } from "../../../utils";
 import { FaCalendarAlt } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
+import { useDispatch } from "react-redux";
+import { setSelectedEvent } from "@/redux/reducers/selectedEventSlice";
 
 const TopEventBanner = ({ item }: any) => {
+
+  const dispatch = useDispatch()
+  
   const { accentColor } = useTheme();
+
+  const bookEvent = (item:any) => {
+    dispatch(setSelectedEvent(item))
+  }
 
   return (
     <div
@@ -322,7 +331,7 @@ const TopEventBanner = ({ item }: any) => {
           </div>
         </div>
 
-        <Button>Book Tickets</Button>
+        <Button onClick={() => bookEvent(item)}>Book Tickets</Button>
       </div>
     </div>
   );

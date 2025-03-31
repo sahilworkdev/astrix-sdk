@@ -5,7 +5,7 @@ const EventDeailSection = ({ styles }: any) => {
     <div>
       <div
         style={{
-          backgroundColor: "#1a1d17",
+          
           color: "#ffffff",
           padding: "20px",
           fontFamily: "Arial, sans-serif",

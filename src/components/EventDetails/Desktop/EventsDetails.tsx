@@ -3,10 +3,12 @@ import EventCard from "./EventCard";
 import EventDeailSection from "./EventDeailSection";
 import EventTicketDetailSection from "./EventTicketDetailSection";
 import BottomBar from "../BottomBar";
+import { useSelector } from "react-redux";
 
 const EventsDetails = () => {
   const cardStyles = {
     backgroundColor: "#C8C69300",
+    backgroundColorTo:`${"#AF8CFF"}40`,
     imageWidth: "30%",
     imageHeight: "auto",
     aspectRatio: "4/3",  
@@ -81,12 +83,15 @@ const EventsDetails = () => {
     btnRadius:"20px"
   }
 
+  const event = useSelector((state:any) => state.selectedEvent)
+  console.log(event, "selected event")
+
   return (
-    <div>
+    <div style={{ height:"100%", overflow:"auto", backgroundColor:"#0E0F0C",padding:"10px"}}>
       <div>
         <EventCard styles={cardStyles} />
       </div>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex" ,marginTop:"20px"}}>
         <div style={{ width: "40%" }}>
           <EventDeailSection styles={sectStyles} />
         </div>

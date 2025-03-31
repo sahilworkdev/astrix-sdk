@@ -2,7 +2,7 @@ import React from "react";
 
 const Details = ({ styles }: any) => {
   return (
-    <div style={{ backgroundColor: styles.bgColor, padding: "10px", borderRight:"1px dashed #48505B", borderLeft:"1px dashed #48505B"}}>
+    <div style={{ backgroundColor: styles.bgColor, padding: "10px", borderRight:"1px dashed #48505B",borderTop:"1px solid #272833",borderBottom:"1px solid #272833" , borderLeft:"1px dashed #48505B"}}>
       <div
         style={{
           display: "flex",
@@ -52,7 +52,7 @@ const Details = ({ styles }: any) => {
         </div>
 
         {/* Date & Time */}
-        <div style={{display:"flex"}}>
+        <div style={{display:"flex", gap:"20px"}}>
           <div style={{ fontSize: "14px", color: "#bbbbbb" }}>
             <strong>Starting on:</strong>
             <p> Sun 26 Sept, 2024 | 7:00 P.M.</p>

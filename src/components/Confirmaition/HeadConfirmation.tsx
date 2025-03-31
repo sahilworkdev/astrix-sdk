@@ -105,6 +105,7 @@ const HeadConfirmation = () => {
                 backgroundColor: "#1F1F1F99",
                 padding: "10px",
                 borderRadius: "12px",
+                border:"1px solid #31373F66"
               }}
             >
               <BillSummary styles={billSummaryStyles} />
