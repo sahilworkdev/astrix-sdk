@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import EventCard from "./EventCard";
 import EventDeailSection from "./EventDeailSection";
 import EventTicketDetailSection from "./EventTicketDetailSection";
@@ -7,14 +7,15 @@ import { useSelector } from "react-redux";
 
 const EventsDetails = () => {
   const cardStyles = {
+    fontFamily:"mulish",
     backgroundColor: "#C8C69300",
     backgroundColorTo:`${"#AF8CFF"}40`,
-    imageWidth: "30%",
+    imageWidth: "60%",
     imageHeight: "auto",
-    aspectRatio: "4/3",  
+    aspectRatio: "4/2",  
     profileImageWidth: "40px",
     profileImageHeight: "40px",
-    profileBoderColor:"#B0E681",
+    profileBoderColor:"#AF8CFF",
     userNameTextColor: "#CCD0D7",
     userNameTextSize: "28px",
     userNameTextWeight: "400",
@@ -50,14 +51,15 @@ const EventsDetails = () => {
   
   const ticketsStyles = {
     bg:"#FFFFFF1A",
-    headingtextColor:"#E8EAED",
-    headingtextWeight:"600",
-    headingtextSize:"24px",
+    headingTextColor:"#E8EAED",
+    headingTextWeight:"600",
+    headingTextSize:"24px",
+    headingTextFamily:"Mulish",
     ticketContainerBg :"#1F1F1F99",
     ticketNameTextColor:"#E8EAED",
     ticketNameTextSize:"24px",
     ticketNameTextWeight:"600",
-    ticketDescriptionTextColor:"##AFB6C0",
+    ticketDescriptionTextColor:"#AFB6C0",
     ticketDescriptionTextSize:"16px",
     ticketDescriptionTextWeight:"400",
     priceTextSize:"24px",
@@ -83,23 +85,29 @@ const EventsDetails = () => {
     btnRadius:"20px"
   }
 
-  const event = useSelector((state:any) => state.selectedEvent)
-  console.log(event, "selected event")
+  const [selectedTicket, setSelectedTicket] = useState({})
+
+  const eventDetail = useSelector((state:any) => state.selectedEventDetail.selectedEventDetail)
+  if(eventDetail?.events?.length > 0) {
+    
+  }
 
   return (
-    <div style={{ height:"100%", overflow:"auto", backgroundColor:"#0E0F0C",padding:"10px"}}>
+    <div style={{position:"relative", backgroundColor:"#0E0F0C", backdropFilter: 'blur(8px)',}}>
+      <div style={{ height:"100%", overflow:"auto", }}>
       <div>
-        <EventCard styles={cardStyles} />
+        <EventCard styles={cardStyles} values={eventDetail} />
       </div>
       <div style={{ display: "flex" ,marginTop:"20px"}}>
         <div style={{ width: "40%" }}>
-          <EventDeailSection styles={sectStyles} />
+          <EventDeailSection styles={sectStyles}  values={eventDetail} />
         </div>
         <div style={{ width: "60%" }}>
-          <EventTicketDetailSection styles={ticketsStyles} />
+          <EventTicketDetailSection styles={ticketsStyles}  values={eventDetail} />
         </div>
       </div>
-      <div>
+      </div>
+      <div style={{position:"absolute", bottom:"0px", left:"0px", width:"100%", border:"2px solid #31373F66", borderRadius:"12px"}}>
         <BottomBar styles={bottomStyles} />
       </div>
     </div>

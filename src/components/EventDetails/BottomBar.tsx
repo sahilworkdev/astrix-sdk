@@ -2,7 +2,7 @@ import React from 'react'
 
 const BottomBar = ({styles}:any) => {
   return (
-    <div>
+    <div style={{}}>
         <div style={{display:"flex", justifyContent:"end", backgroundColor:styles.bg , padding:'15px'}}>
             <div style={{display:"flex", alignItems:"center"}}>
                 <div>

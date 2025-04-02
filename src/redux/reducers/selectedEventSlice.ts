@@ -3,7 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 
 
 const initialState: any = {
-  name:"yuvaraj"
+  selectedEventDetail:[]
 }
 
 export const selectedEventSlice = createSlice({
@@ -11,7 +11,8 @@ export const selectedEventSlice = createSlice({
   initialState,
   reducers: {
     setSelectedEvent: (state,action) => {
-      state = action.payload
+      state.selectedEventDetail = action.payload
+      console.log(`selected event`, action.payload)
     }
   },
 })

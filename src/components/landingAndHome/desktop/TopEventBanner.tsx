@@ -7,6 +7,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { setSelectedEvent } from "@/redux/reducers/selectedEventSlice";
+import axios from "axios";
 
 const TopEventBanner = ({ item }: any) => {
 
@@ -14,8 +15,12 @@ const TopEventBanner = ({ item }: any) => {
   
   const { accentColor } = useTheme();
 
-  const bookEvent = (item:any) => {
-    dispatch(setSelectedEvent(item))
+  const bookEvent = async (item:any) => {
+    const eventId = item.eventId
+    const author = item.author
+    const res = await axios.get(`https://astrix-events-staging.azurewebsites.net/event/share/${eventId}/${author}`)
+    console.log("da", res.data)
+    dispatch(setSelectedEvent(res.data.data))
   }
 
   return (

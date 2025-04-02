@@ -1,11 +1,10 @@
 import React from "react";
 
-const EventDeailSection = ({ styles }: any) => {
+const EventDeailSection = ({ styles, values }: any) => {
   return (
     <div>
       <div
         style={{
-          
           color: "#ffffff",
           padding: "20px",
           fontFamily: "Arial, sans-serif",
@@ -20,6 +19,7 @@ const EventDeailSection = ({ styles }: any) => {
               fontSize: styles.headingTextSize,
               fontWeight: styles.headingTextWeight,
               marginBottom: "5px",
+              fontFamily:"Mulish"
             }}
           >
             About the event
@@ -30,9 +30,10 @@ const EventDeailSection = ({ styles }: any) => {
               fontSize: styles.detailTextSize,
               fontWeight: styles.detailTextWeight,
               marginBottom: "5px",
+              fontFamily:"Mulish"
             }}
           >
-            Lorem ipsum
+            {values?.description}
           </p>
         </div>
 
@@ -43,185 +44,67 @@ const EventDeailSection = ({ styles }: any) => {
               fontSize: styles.headingTextSize,
               fontWeight: styles.headingTextWeight,
               marginBottom: "5px",
+              fontFamily:"Mulish"
             }}
           >
             Artists
           </h3>
-          <div style={{display:"grid" , gridTemplateColumns: 'repeat(2, 1fr)', rowGap: '16px', marginBottom: '16px'}}>
-            <div style={{ display: "flex", alignItems: "center"}}>
-              <img
-                style={{
-                  width: styles.profileImageWidth,
-                  height: styles.profileImageHeight,
-                }}
-                src="/vite.svg"
-                alt="Artist 1"
-              />
-              <div style={{display:"flex", alignItems:"center"}}>
-                <div style={{display:"flex", alignItems:"center"}}>
-                <span
-                  style={{
-                    color: styles.artistNameTextColor,
-                    fontSize: styles.artistNameTextSize,
-                    fontWeight: styles.artistNameTextWeight,
-                  }}
-                >
-                  Artist 1
-                </span>
-                <span style={{}}>|</span>
-                </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(2, 1fr)",
+              rowGap: "16px",
+              marginBottom: "16px",
+              fontFamily:"Mulish"
+            }}
+          >
+            {values?.artists?.map((i:any, index:any) => (
+              <div
+                key={index}
+                style={{ display: "flex", gap: "10px", alignItems: "center" }}
+              >
                 <img
-                  src="/vite.svg"
-                  alt="Spotify"
-                  style={{ width: "16px", height: "16px" }}
-                />
-              </div>
-            </div>
-            <div style={{ display: "flex", alignItems: "center"}}>
-              <img
-                style={{
-                  width: styles.profileImageWidth,
-                  height: styles.profileImageHeight,
-                }}
-                src="/vite.svg"
-                alt="Artist 1"
-              />
-              <div style={{display:"flex", alignItems:"center"}}>
-                <div style={{display:"flex", alignItems:"center"}}>
-                <span
                   style={{
-                    color: styles.artistNameTextColor,
-                    fontSize: styles.artistNameTextSize,
-                    fontWeight: styles.artistNameTextWeight,
+                    width: styles.artistProfileImageWidth,
+                    height: styles.artistProfileImageWidth,
+                    borderRadius:"100%"
                   }}
-                >
-                  Artist 1
-                </span>
-                <span style={{}}>|</span>
-                </div>
-                <img
-                  src="/vite.svg"
-                  alt="Spotify"
-                  style={{ width: "16px", height: "16px" }}
+                  src={`${i?.avatar}`}
+                  alt="Artist 1"
                 />
-              </div>
-            </div>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <img
-                style={{
-                  width: styles.profileImageWidth,
-                  height: styles.profileImageHeight,
-                }}
-                src="/vite.svg"
-                alt="Artist 1"
-              />
-              <div style={{display:"flex", alignItems:"center"}}>
-                <div style={{display:"flex", alignItems:"center"}}>
-                <span
-                  style={{
-                    color: styles.artistNameTextColor,
-                    fontSize: styles.artistNameTextSize,
-                    fontWeight: styles.artistNameTextWeight,
-                  }}
+                <div
+                  style={{ display: "flex", gap: "5px", alignItems: "center" }}
                 >
-                  Artist 1
-                </span>
-                <span style={{}}>|</span>
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "5px",
+                      alignItems: "center",
+                    }}
+                  >
+                    <span
+                      style={{
+                        color: styles.artistNameTextColor,
+                        fontSize: styles.artistNameTextSize,
+                        fontWeight: styles.artistNameTextWeight,
+                      }}
+                    >
+                      {i?.name}
+                    </span>
+                    <span style={{}}>|</span>
+                  </div>
+                  <div style={{display:"flex", alignItems:"center", gap:"5px"}}>
+                    {Array.from({ length: 3 }).map((i: any, index) => (
+                      <img
+                        src="/Icons/instagram.svg"
+                        alt="Spotify"
+                        style={{ width: "16px", height: "16px" }}
+                      />
+                    ))}
+                  </div>
                 </div>
-                <img
-                  src="/vite.svg"
-                  alt="Spotify"
-                  style={{ width: "16px", height: "16px" }}
-                />
               </div>
-            </div>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <img
-                style={{
-                  width: styles.profileImageWidth,
-                  height: styles.profileImageHeight,
-                }}
-                src="/vite.svg"
-                alt="Artist 1"
-              />
-              <div style={{display:"flex", alignItems:"center"}}>
-                <div style={{display:"flex", alignItems:"center"}}>
-                <span
-                  style={{
-                    color: styles.artistNameTextColor,
-                    fontSize: styles.artistNameTextSize,
-                    fontWeight: styles.artistNameTextWeight,
-                  }}
-                >
-                  Artist 1
-                </span>
-                <span style={{}}>|</span>
-                </div>
-                <img
-                  src="/vite.svg"
-                  alt="Spotify"
-                  style={{ width: "16px", height: "16px" }}
-                />
-              </div>
-            </div>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <img
-                style={{
-                  width: styles.profileImageWidth,
-                  height: styles.profileImageHeight,
-                }}
-                src="/vite.svg"
-                alt="Artist 1"
-              />
-              <div style={{display:"flex", alignItems:"center"}}>
-                <div style={{display:"flex", alignItems:"center"}}>
-                <span
-                  style={{
-                    color: styles.artistNameTextColor,
-                    fontSize: styles.artistNameTextSize,
-                    fontWeight: styles.artistNameTextWeight,
-                  }}
-                >
-                  Artist 1
-                </span>
-                <span style={{}}>|</span>
-                </div>
-                <img
-                  src="/vite.svg"
-                  alt="Spotify"
-                  style={{ width: "16px", height: "16px" }}
-                />
-              </div>
-            </div>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <img
-                style={{
-                  width: styles.profileImageWidth,
-                  height: styles.profileImageHeight,
-                }}
-                src="/vite.svg"
-                alt="Artist 2"
-              />
-              <div style={{display:"flex", alignItems:"center"}}>
-                <div style={{display:"flex", alignItems:"center"}}>
-                <span
-                  style={{
-                    color: styles.artistNameTextColor,
-                    fontSize: styles.artistNameTextSize,
-                    fontWeight: styles.artistNameTextWeight,
-                  }}
-                >
-                  Artist 2
-                </span>
-                <span style={{}}>|</span>
-                </div>
-                <img
-                  src="/vite.svg"
-                  alt="Spotify"
-                  style={{ width: "16px", height: "16px" }}
-                />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
@@ -240,6 +123,7 @@ const EventDeailSection = ({ styles }: any) => {
               fontSize: styles.headingTextSize,
               fontWeight: styles.headingTextWeight,
               marginBottom: "5px",
+              fontFamily:"Mulish"
             }}
           >
             Invite your friends
@@ -264,6 +148,7 @@ const EventDeailSection = ({ styles }: any) => {
                 fontSize: styles.headingTextSize,
                 fontWeight: styles.headingTextWeight,
                 marginBottom: "5px",
+                fontFamily:"Mulish"
               }}
             >
               Terms & conditions
@@ -276,6 +161,7 @@ const EventDeailSection = ({ styles }: any) => {
               fontSize: styles.detailTextSize,
               fontWeight: styles.detailTextWeight,
               marginBottom: "5px",
+              fontFamily:"Mulish"
             }}
           >
             This is a single-entry show. Please keep your tickets and wristbands

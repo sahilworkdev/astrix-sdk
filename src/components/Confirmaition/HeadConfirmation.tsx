@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BillSummary } from "../Cart/BillSummary";
 import Ticket from "./Ticket";
 
 const HeadConfirmation = () => {
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
     
     const thankYouStyles = {
         orderIdColor:"#E8EAED",

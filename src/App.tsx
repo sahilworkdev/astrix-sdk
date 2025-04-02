@@ -21,13 +21,13 @@ function App() {
         <ThemeProvider accentColor={import.meta.env.VITE_ACCENT_COLOR}>
           {/* <h1 style={{ textAlign: "center" }}>Astrix SDK</h1> */}
           {/* <HeadConfirmation /> */}
-          {/* <TopEventsSlider type={""} showArrows={false} /> */}
-          {/* <EventsDetails /> */}
+          <TopEventsSlider type={""} showArrows={false} />
+          <EventsDetails />
           {/* <HeadConfirmation /> */}
-          <div style={{padding:"20px"}}>
+        
           {/* <EventCardSmall /> */}
-          <HeadProfile />
-          </div>
+          {/* <HeadProfile /> */}
+        
         </ThemeProvider>
       </AuthProvider>
     </div>

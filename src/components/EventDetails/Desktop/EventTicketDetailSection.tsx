@@ -1,6 +1,6 @@
 import React from "react";
 
-const EventTicketDetailSection = ({styles}:any) => {
+const EventTicketDetailSection = ({styles, values}:any) => {
   return (
     <div>
       <div
@@ -15,10 +15,11 @@ const EventTicketDetailSection = ({styles}:any) => {
       >
         <h2
           style={{
-            fontSize: styles.headingtextColor,
+            fontSize: styles.headingTextColor,
             fontWeight: styles.headingTextWeight,
             color:styles.headingTextColor,
             marginBottom: "12px",
+            fontFamily:"Mulish"
           }}
         >
           Add Your Ticket
@@ -30,7 +31,7 @@ const EventTicketDetailSection = ({styles}:any) => {
             borderRadius: "8px",
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "center",
+            alignItems: "start",
             border: "1px solid #2c2c2c",
           }}
         >
@@ -41,6 +42,7 @@ const EventTicketDetailSection = ({styles}:any) => {
                 fontWeight: styles.ticketNameTextWeight,
                 color:styles.ticketNameTextColor,
                 marginBottom: "4px",
+                fontFamily:"Mulish"
               }}
             >
               rktjhret hiu{" "}
@@ -61,6 +63,7 @@ const EventTicketDetailSection = ({styles}:any) => {
                 fontSize: styles.ticketDescriptionTextSize,
                 fontWeight: styles.ticketDescriptionTextWeight,
                 color:styles.ticketDescriptionTextColor,
+                fontFamily:"Mulish"
               }}
             >
               kjghre iugreyjur
@@ -71,9 +74,18 @@ const EventTicketDetailSection = ({styles}:any) => {
               fontSize: styles.priceTextSize,
               fontWeight: styles.priceTextWeight,
               color:styles.priceTextColor,
+              fontFamily:"Mulish",
+              display:"flex",
+              flexDirection: "column",
+              gap:"10px"
             }}
           >
-            ₹342
+            <div style={{display:"flex", gap:"5px", alignItems:"center", border:"1px solid #AF8CFF", borderRadius:"40px", padding:"0px 8px"}}>
+              <p style={{color:"#FFFFFF", fontSize:"20px", fontWeight:"600", fontFamily:"Mulish"}}>-</p>
+              <p style={{color:"#FFFFFF", fontSize:"20px", fontWeight:"600", fontFamily:"Mulish"}}>1</p>
+              <p style={{color:"#FFFFFF", fontSize:"20px", fontWeight:"600", fontFamily:"Mulish"}}>+</p>
+            </div>
+            <p style={{color:"#AFE67F", fontSize:"24px", fontWeight:"700", fontFamily:"Mulish"}}>₹342</p>
           </div>
         </div>
       </div>
