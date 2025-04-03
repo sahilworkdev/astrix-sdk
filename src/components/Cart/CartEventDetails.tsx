@@ -1,6 +1,8 @@
 import React from "react";
+import LocationIcon from "../general/LocationIcon";
+import CalendarIcon from "../general/CalendarIcon";
 
-const CartEventDetails = ({ styles }: any) => {
+const CartEventDetails = ({ values, styles }: any) => {
   return (
     <div>
       <div>
@@ -13,7 +15,7 @@ const CartEventDetails = ({ styles }: any) => {
             marginBottom: "4px",
           }}
         >
-          Junkie Event the blast
+          {values?.name}
         </h2>
         <p
           style={{
@@ -23,7 +25,7 @@ const CartEventDetails = ({ styles }: any) => {
             marginBottom: "16px",
           }}
         >
-          By Hot Sauce
+          {values?.user?.username}
         </p>
 
         {/* Phase and Ticket Info */}
@@ -89,7 +91,7 @@ const CartEventDetails = ({ styles }: any) => {
             flexDirection: "column",
             gap: "20px",
             width: "75%",
-            paddingBottom:"20px"
+            paddingBottom: "20px",
           }}
         >
           {/* Location */}
@@ -98,10 +100,14 @@ const CartEventDetails = ({ styles }: any) => {
               color: styles.valuesColor,
               fontSize: styles.valuesSize,
               fontWeight: styles.valuesWeight,
+              display: "flex",
             }}
           >
-            <span style={{ marginRight: "8px" }}>📍</span>
-            2nd Floor, JLN Stadium | Delhi, India
+            <p style={{ marginRight: "8px" }}>
+              <LocationIcon />
+            </p>
+            <p>{values?.venue}</p>
+            <p>{values?.location}</p>
           </div>
 
           {/* Date and Time */}
@@ -113,47 +119,56 @@ const CartEventDetails = ({ styles }: any) => {
               color: "#bbb",
             }}
           >
-            <div>
-              <span style={{ marginRight: "6px" }}>📅</span>
-              <span
-                style={{
-                  color: styles.detailHeaderColor,
-                  fontSize: styles.detailHeaderSize,
-                  fontWeight: styles.detailHeaderWeight,
-                }}
-              >
-                Starting on
-              </span>
-              <p
-                style={{
-                  color: styles.valuesColor,
-                  fontSize: styles.valuesSize,
-                  fontWeight: styles.valuesWeight,
-                }}
-              >
-                Sun 26 Sept, 2024 | 7:00 P.M.
+            <div style={{ display: "flex" }}>
+              <p style={{ marginRight: "6px" }}>
+                <CalendarIcon bgColor="#AF8CFF" />
               </p>
+              <div>
+                {" "}
+                <p
+                  style={{
+                    color: styles.detailHeaderColor,
+                    fontSize: styles.detailHeaderSize,
+                    fontWeight: styles.detailHeaderWeight,
+                  }}
+                >
+                  Starting on
+                </p>
+                <p
+                  style={{
+                    color: styles.valuesColor,
+                    fontSize: styles.valuesSize,
+                    fontWeight: styles.valuesWeight,
+                  }}
+                >
+                  {values?.startDate}
+                </p>
+              </div>
             </div>
-            <div>
-              <span style={{ marginRight: "6px" }}>📅</span>
-              <span
-                style={{
-                  color: styles.detailHeaderColor,
-                  fontSize: styles.detailHeaderSize,
-                  fontWeight: styles.detailHeaderWeight,
-                }}
-              >
-                Closing on
-              </span>
-              <p
-                style={{
-                  color: styles.valuesColor,
-                  fontSize: styles.valuesSize,
-                  fontWeight: styles.valuesWeight,
-                }}
-              >
-                Sun 30 Sept, 2024 | 11:00 P.M.
+            <div style={{ display: "flex" }}>
+              <p style={{ marginRight: "6px" }}>
+                <CalendarIcon bgColor="#AF8CFF" />
               </p>
+              <div>
+                <p
+                  style={{
+                    color: styles.detailHeaderColor,
+                    fontSize: styles.detailHeaderSize,
+                    fontWeight: styles.detailHeaderWeight,
+                  }}
+                >
+                  Closing on
+                </p>
+                <p
+                  style={{
+                    color: styles.valuesColor,
+                    fontSize: styles.valuesSize,
+                    fontWeight: styles.valuesWeight,
+                  }}
+                >
+                  {values?.endDate}
+                </p>
+              </div>
             </div>
           </div>
         </div>

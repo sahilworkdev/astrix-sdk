@@ -2,7 +2,7 @@ import React from 'react'
 import CartEventDetails from './CartEventDetails'
 import { BillSummary } from './BillSummary'
 
-const YouCart = () => {
+const YouCart = ({values}:any) => {
 
     const detailsStyles = {
         eventNameTextColor:"#E8EAED",
@@ -58,7 +58,7 @@ const YouCart = () => {
             <p style={{color:"#E8EAED", fontSize:"22px", fontWeight:"700", marginBottom:"16px"}}>Your Cart</p>
         </div>
         <div>
-            <CartEventDetails styles={detailsStyles} />
+            <CartEventDetails styles={detailsStyles} values={values} />
         </div>
         <div>
             <BillSummary styles={billSummaryStyles}  />

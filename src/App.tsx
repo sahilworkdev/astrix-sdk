@@ -23,6 +23,7 @@ function App() {
           {/* <HeadConfirmation /> */}
           <TopEventsSlider type={""} showArrows={false} />
           <EventsDetails />
+          <CartHead />
           {/* <HeadConfirmation /> */}
         
           {/* <EventCardSmall /> */}

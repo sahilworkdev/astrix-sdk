@@ -4,13 +4,14 @@ import EventDeailSection from "./EventDeailSection";
 import EventTicketDetailSection from "./EventTicketDetailSection";
 import BottomBar from "../BottomBar";
 import { useSelector } from "react-redux";
+import { setSelectedEvent } from "@/redux/reducers/selectedEventSlice";
 
 const EventsDetails = () => {
   const cardStyles = {
     fontFamily:"mulish",
     backgroundColor: "#C8C69300",
     backgroundColorTo:`${"#AF8CFF"}40`,
-    imageWidth: "60%",
+    imageWidth: "40%",
     imageHeight: "auto",
     aspectRatio: "4/2",  
     profileImageWidth: "40px",
@@ -56,12 +57,19 @@ const EventsDetails = () => {
     headingTextSize:"24px",
     headingTextFamily:"Mulish",
     ticketContainerBg :"#1F1F1F99",
+    selectedEventBg:"#1F1F1F99",
     ticketNameTextColor:"#E8EAED",
     ticketNameTextSize:"24px",
     ticketNameTextWeight:"600",
     ticketDescriptionTextColor:"#AFB6C0",
     ticketDescriptionTextSize:"16px",
     ticketDescriptionTextWeight:"400",
+    locationTextColor:"#CCD0D7",
+    locationTextSize:"16px",
+    locationTextWeight:"400",
+    venueTextColor:"#CCD0D7",
+    venueTextSize:"20px",
+    venueTextWeight:"600",
     priceTextSize:"24px",
     priceTextColor:"#AFE67F",
     priceTextWeight:"700",
@@ -85,15 +93,26 @@ const EventsDetails = () => {
     btnRadius:"20px"
   }
 
-  const [selectedTicket, setSelectedTicket] = useState({})
-
   const eventDetail = useSelector((state:any) => state.selectedEventDetail.selectedEventDetail)
-  if(eventDetail?.events?.length > 0) {
-    
-  }
+ 
+    const [selectedEvent, setSelectedEvent] = useState(eventDetail?.events?.[0] || {});
+    const [selectedTicket, setSelectedTicket] = useState(selectedEvent?.tickets?.[0] || {});
+    const [showAllEvents, setShowAllEvents] = useState(false);
+    const [ticketCount, setTicketCount] = useState(0)
+
+    const need = {
+      selectedEvent: selectedEvent,
+      selectedTicket: selectedTicket,
+      showAllEvents: showAllEvents,
+      ticketCount: ticketCount,
+      setTicketCount: setTicketCount,
+      setShowAllEvents: setShowAllEvents,
+      setSelectedEvent: setSelectedEvent,
+      setSelectedTicket: setSelectedTicket,
+    }
 
   return (
-    <div style={{position:"relative", backgroundColor:"#0E0F0C", backdropFilter: 'blur(8px)',}}>
+    <div style={{position:"relative", backgroundColor:"#0E0F0C", backdropFilter: 'blur(8px)',height:"100%", overflow:"auto"}}>
       <div style={{ height:"100%", overflow:"auto", }}>
       <div>
         <EventCard styles={cardStyles} values={eventDetail} />

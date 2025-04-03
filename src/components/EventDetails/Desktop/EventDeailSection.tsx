@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 const EventDeailSection = ({ styles, values }: any) => {
+  // const [artists, setArtists] = useState([])
+
+  const artists = values?.events?.flatMap((event: any) => event.artists || []);
   return (
     <div>
       <div
@@ -19,7 +22,7 @@ const EventDeailSection = ({ styles, values }: any) => {
               fontSize: styles.headingTextSize,
               fontWeight: styles.headingTextWeight,
               marginBottom: "5px",
-              fontFamily:"Mulish"
+              fontFamily: "Mulish",
             }}
           >
             About the event
@@ -30,7 +33,7 @@ const EventDeailSection = ({ styles, values }: any) => {
               fontSize: styles.detailTextSize,
               fontWeight: styles.detailTextWeight,
               marginBottom: "5px",
-              fontFamily:"Mulish"
+              fontFamily: "Mulish",
             }}
           >
             {values?.description}
@@ -44,7 +47,7 @@ const EventDeailSection = ({ styles, values }: any) => {
               fontSize: styles.headingTextSize,
               fontWeight: styles.headingTextWeight,
               marginBottom: "5px",
-              fontFamily:"Mulish"
+              fontFamily: "Mulish",
             }}
           >
             Artists
@@ -55,10 +58,10 @@ const EventDeailSection = ({ styles, values }: any) => {
               gridTemplateColumns: "repeat(2, 1fr)",
               rowGap: "16px",
               marginBottom: "16px",
-              fontFamily:"Mulish"
+              fontFamily: "Mulish",
             }}
           >
-            {values?.artists?.map((i:any, index:any) => (
+            {artists?.map((i: any, index: any) => (
               <div
                 key={index}
                 style={{ display: "flex", gap: "10px", alignItems: "center" }}
@@ -67,13 +70,13 @@ const EventDeailSection = ({ styles, values }: any) => {
                   style={{
                     width: styles.artistProfileImageWidth,
                     height: styles.artistProfileImageWidth,
-                    borderRadius:"100%"
+                    borderRadius: "100%",
                   }}
                   src={`${i?.avatar}`}
                   alt="Artist 1"
                 />
                 <div
-                  style={{ display: "flex", gap: "5px", alignItems: "center" }}
+                  style={{ display: "flex", gap: "5px", alignItems: "center",}}
                 >
                   <div
                     style={{
@@ -93,14 +96,43 @@ const EventDeailSection = ({ styles, values }: any) => {
                     </span>
                     <span style={{}}>|</span>
                   </div>
-                  <div style={{display:"flex", alignItems:"center", gap:"5px"}}>
-                    {Array.from({ length: 3 }).map((i: any, index) => (
-                      <img
-                        src="/Icons/instagram.svg"
-                        alt="Spotify"
-                        style={{ width: "16px", height: "16px" }}
-                      />
-                    ))}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      paddingTop: "5px",
+                      gap: "5px",
+                    }}
+                  >
+                    {i.socials?.instagram && (
+                      <a
+                        key={index}
+                        href={i.socials.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          src="/Icons/instagram.svg" // Use a proper Instagram icon instead of the link itself
+                          alt={`${i.name} Instagram`}
+                          style={{ width: "16px", height: "16px" }}
+                        />
+                      </a>
+                    )}
+
+                    {i.socials?.spotify && (
+                      <a
+                        key={index}
+                        href={i.socials.spotify}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          src="/Icons/spotify.svg"// Use a proper Instagram icon instead of the link itself
+                          alt={`${i.name} spotify`}
+                          style={{ width: "16px", height: "16px" }}
+                        />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
@@ -123,7 +155,7 @@ const EventDeailSection = ({ styles, values }: any) => {
               fontSize: styles.headingTextSize,
               fontWeight: styles.headingTextWeight,
               marginBottom: "5px",
-              fontFamily:"Mulish"
+              fontFamily: "Mulish",
             }}
           >
             Invite your friends
@@ -148,7 +180,7 @@ const EventDeailSection = ({ styles, values }: any) => {
                 fontSize: styles.headingTextSize,
                 fontWeight: styles.headingTextWeight,
                 marginBottom: "5px",
-                fontFamily:"Mulish"
+                fontFamily: "Mulish",
               }}
             >
               Terms & conditions
@@ -161,7 +193,7 @@ const EventDeailSection = ({ styles, values }: any) => {
               fontSize: styles.detailTextSize,
               fontWeight: styles.detailTextWeight,
               marginBottom: "5px",
-              fontFamily:"Mulish"
+              fontFamily: "Mulish",
             }}
           >
             This is a single-entry show. Please keep your tickets and wristbands
