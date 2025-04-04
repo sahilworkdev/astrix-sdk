@@ -1,4 +1,5 @@
 import React from "react";
+import LocationIcon from "../general/LocationIcon";
 
 const CartEventDetails = ({ styles }: any) => {
   return (
@@ -98,10 +99,11 @@ const CartEventDetails = ({ styles }: any) => {
               color: styles.valuesColor,
               fontSize: styles.valuesSize,
               fontWeight: styles.valuesWeight,
+              display:"flex"
             }}
           >
-            <span style={{ marginRight: "8px" }}>📍</span>
-            2nd Floor, JLN Stadium | Delhi, India
+            <p style={{ marginRight: "8px" }}><LocationIcon bgColor="white" width={24} height={24} /></p>
+            <p>2nd Floor, JLN Stadium | Delhi, India</p>
           </div>
 
           {/* Date and Time */}

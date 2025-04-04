@@ -6,20 +6,20 @@ const YouCart = () => {
 
     const detailsStyles = {
         eventNameTextColor:"#E8EAED",
-        eventNameTextSize:"20px",
-        eventNameTextWeight:"600",
+        eventNameTextSize:"19px",
+        eventNameTextWeight:"500",
         eventDescriptionColor:"#AFB6C0",
-        eventDescriptionSize:"12px",
-        eventDescriptionWeight:"500",
+        eventDescriptionSize:"11px",
+        eventDescriptionWeight:"400",
         ticketNameTextColor:"#E8EAED",
-        ticketNameTextSize:"20px",
-        ticketNameTextWeight:"700",
+        ticketNameTextSize:"19px",
+        ticketNameTextWeight:"600",
         ticketDescriptionColor:"#AFB6C0",
         ticketDescriptionSize:"10px",
-        ticketDescriptionWeight:"400",
+        ticketDescriptionWeight:"200",
         tickeCountAndPriceColor:"#E8EAED",
         tickeCountAndPriceSize:"20px",
-        tickeCountAndPriceWeight:"700",
+        tickeCountAndPriceWeight:"600",
         detailHeaderColor:"#CCD0D7",
         detailHeaderSize:"16px",
         detailHeaderWeight:"400",
@@ -53,9 +53,9 @@ const YouCart = () => {
     }
 
   return (
-    <div style={{border:"1px solid #31373F66", backgroundColor:"#1F1F1F99", padding:"10px 15px", borderRadius:"12px"}}>
+    <div style={{border:"1px solid #31373F66", backgroundColor:"#1F1F1F99", padding:"12px 16px", borderRadius:"12px"}}>
         <div>
-            <p style={{color:"#E8EAED", fontSize:"22px", fontWeight:"700", marginBottom:"16px"}}>Your Cart</p>
+            <p style={{color:"#E8EAED", fontSize:"21px", fontWeight:"600", marginBottom:"16px", fontFamily:"Mulish"}}>Your Cart</p>
         </div>
         <div>
             <CartEventDetails styles={detailsStyles} />

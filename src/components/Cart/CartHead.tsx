@@ -1,24 +1,40 @@
-import React from 'react'
-import YouCart from './YouCart'
-import PaymentSelection from './PaymentSelection'
+import React from "react";
+import YouCart from "./YouCart";
+import PaymentSelection from "./PaymentSelection";
 
 const CartHead = () => {
   const paymentStyles = {
-    textColor:"#E8EAED",
-    textSize:"16px",
-    textWeight:"400",
-}
-
-
+    textColor: "#E8EAED",
+    textSize: "16px",
+    textWeight: "400",
+  };
 
   return (
-    <div style={{display:"flex", gap:"10px", padding:"20px", overflow:"auto", height:"100%"}}>
-        <div style={{width:"40%"}}><YouCart /></div>
-        <div style={{width:"60%"}}>
-            <PaymentSelection  styles={paymentStyles} />
+    <div style={{padding: "30px" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", marginBottom:"45px" }}>
+        <div>
+          <p>evws</p>
         </div>
-    </div>
-  )
-}
+        <p>x</p>
+      </div>
 
-export default CartHead
+      <div
+        style={{
+          display: "flex",
+          gap: "30px",
+          overflow: "auto",
+          height: "100%",
+        }}
+      >
+        <div style={{ width: "45%"}}>
+          <YouCart />
+        </div>
+        <div style={{ width: "55%" }}>
+          <PaymentSelection styles={paymentStyles} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CartHead;

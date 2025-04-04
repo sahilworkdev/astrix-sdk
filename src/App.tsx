@@ -9,6 +9,8 @@ import Divider from "./components/general/Divider";
 import Dropdown from "./components/eventCreation/dropdown";
 import Calendar from "./components/eventCreation/calendar";
 import { TimeDial } from "./components/eventCreation/clock";
+import EventsDetails from "./components/EventDetails/Desktop/EventsDetails";
+import CartHead from "./components/Cart/CartHead";
 
 const handleSelect = (option: string) => {
   console.log("Selected:", option);
@@ -24,11 +26,12 @@ function App() {
               display: "flex",
               flexDirection: "column",
               gap: "30px",
-              padding: "20px",
             }}
           >
-            <TopEventsSlider showArrows={true} type="home" />
-            <Divider title="hello" />
+            {/* <EventsDetails /> */}
+            <CartHead />
+            {/* <TopEventsSlider showArrows={true} type="home" /> */}
+            {/* <Divider title="hello" />
             <Dropdown
               options={["Apple", "Banana", "Cherry"]}
               onSelect={handleSelect}
@@ -40,7 +43,7 @@ function App() {
               selectedTime={{ hour: 12, minute: 30 }}
             />
             <LiveCarousel />
-            <PastCarousel />
+            <PastCarousel /> */}
           </div>
         </ThemeProvider>
       </AuthProvider>

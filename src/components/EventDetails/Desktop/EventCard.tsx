@@ -1,14 +1,17 @@
+import Calendar from "@/components/eventCreation/calendar";
+import CalendarIcon from "@/components/general/CalendarIcon";
+import LocationIcon from "@/components/general/LocationIcon";
 import React from "react";
 
-const EventCard = ({ styles, data, currentData }: any) => {
+const EventCard = ({ styles}: any) => {
   return (
     <div
       style={{
         display: "flex",
         gap: "16px",
         padding: "16px",
-        background: "#111",
         borderRadius: "12px",
+        background: `radial-gradient(circle at top right, ${styles.backgroundColor}, ${styles.backgroundColorTo})`,
       }}
     >
       {/* Event Cover */}
@@ -113,7 +116,7 @@ const EventCard = ({ styles, data, currentData }: any) => {
         >
           {/* Starting On */}
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <span style={{ fontSize: "24px", color: "#a3e635" }}>📅</span>
+            <span style={{ fontSize: "24px", color: "#a3e635" }}><CalendarIcon bgColor="#AF8CFF" width={24} height={24}/></span>
             <div>
               <p
                 style={{
@@ -140,7 +143,7 @@ const EventCard = ({ styles, data, currentData }: any) => {
 
           {/* Closing On */}
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <span style={{ fontSize: "24px", color: "#a3e635" }}>📅</span>
+            <span style={{ fontSize: "24px", color: "#a3e635" }}><CalendarIcon bgColor="#AF8CFF" width={24} height={24}/></span>
             <div>
               <p
                 style={{
@@ -167,7 +170,7 @@ const EventCard = ({ styles, data, currentData }: any) => {
 
           {/* Location */}
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <span style={{ fontSize: "24px", color: "#a3e635" }}>📍</span>
+            <span style={{ fontSize: "24px", color: "#a3e635" }}><LocationIcon bgColor="red" width={24} height={24} /></span>
             <div>
               <p
                 style={{

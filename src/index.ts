@@ -10,7 +10,6 @@ export { default as LiveCarousel } from "./components/landingAndHome/desktop/Liv
 export { default as Button } from "./components/general/Button";
 export { default as Avatar } from "./components/general/Avatar";
 export { default as Tag } from "./components/general/Tag";
-export { default as EventBanner } from "./components/bookingPage/desktop/EventBanner";
 export { default as TopEventBanner } from "./components/landingAndHome/desktop/TopEventBanner";
 export { default as TopEventSlider } from "./components/landingAndHome/desktop/TopEventsSlider";
 export { EVENT_API_URI, USER_API_URI, COLORS } from "./config";

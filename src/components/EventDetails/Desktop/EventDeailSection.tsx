@@ -5,7 +5,6 @@ const EventDeailSection = ({ styles }: any) => {
     <div>
       <div
         style={{
-          backgroundColor: "#1a1d17",
           color: "#ffffff",
           padding: "20px",
           fontFamily: "Arial, sans-serif",
@@ -14,22 +13,24 @@ const EventDeailSection = ({ styles }: any) => {
       >
         {/* About the Event Section */}
         <div style={{ marginBottom: "20px" }}>
-          <h2
+          <p
             style={{
               color: styles.headingTextColor,
               fontSize: styles.headingTextSize,
               fontWeight: styles.headingTextWeight,
               marginBottom: "5px",
+              fontFamily:"Mulish"
             }}
           >
             About the event
-          </h2>
+          </p>
           <p
             style={{
               color: styles.detailTextColor,
               fontSize: styles.detailTextSize,
               fontWeight: styles.detailTextWeight,
               marginBottom: "5px",
+              fontFamily:"Mulish",
             }}
           >
             Lorem ipsum
@@ -43,27 +44,31 @@ const EventDeailSection = ({ styles }: any) => {
               fontSize: styles.headingTextSize,
               fontWeight: styles.headingTextWeight,
               marginBottom: "5px",
+              fontFamily:"Mulish",
             }}
           >
             Artists
           </h3>
           <div style={{display:"grid" , gridTemplateColumns: 'repeat(2, 1fr)', rowGap: '16px', marginBottom: '16px'}}>
-            <div style={{ display: "flex", alignItems: "center"}}>
+            {Array.from({length:5}).map((i,index) =>  <div style={{ display: "flex", gap:"5px", alignItems: "center"}}>
               <img
                 style={{
                   width: styles.profileImageWidth,
                   height: styles.profileImageHeight,
+                  border:"red 2px solid",
+                  borderRadius:"100%"
                 }}
                 src="/vite.svg"
                 alt="Artist 1"
               />
-              <div style={{display:"flex", alignItems:"center"}}>
-                <div style={{display:"flex", alignItems:"center"}}>
+              <div style={{display:"flex", gap:"5px", alignItems:"center"}}>
+                <div style={{display:"flex", gap:"5px", alignItems:"center"}}>
                 <span
                   style={{
                     color: styles.artistNameTextColor,
                     fontSize: styles.artistNameTextSize,
                     fontWeight: styles.artistNameTextWeight,
+                    fontFamily:"Mulish",
                   }}
                 >
                   Artist 1
@@ -71,157 +76,12 @@ const EventDeailSection = ({ styles }: any) => {
                 <span style={{}}>|</span>
                 </div>
                 <img
-                  src="/vite.svg"
+                  src="/Icons/instagram.svg"
                   alt="Spotify"
-                  style={{ width: "16px", height: "16px" }}
+                  style={{ width: "20px", height: "20px" }}
                 />
               </div>
-            </div>
-            <div style={{ display: "flex", alignItems: "center"}}>
-              <img
-                style={{
-                  width: styles.profileImageWidth,
-                  height: styles.profileImageHeight,
-                }}
-                src="/vite.svg"
-                alt="Artist 1"
-              />
-              <div style={{display:"flex", alignItems:"center"}}>
-                <div style={{display:"flex", alignItems:"center"}}>
-                <span
-                  style={{
-                    color: styles.artistNameTextColor,
-                    fontSize: styles.artistNameTextSize,
-                    fontWeight: styles.artistNameTextWeight,
-                  }}
-                >
-                  Artist 1
-                </span>
-                <span style={{}}>|</span>
-                </div>
-                <img
-                  src="/vite.svg"
-                  alt="Spotify"
-                  style={{ width: "16px", height: "16px" }}
-                />
-              </div>
-            </div>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <img
-                style={{
-                  width: styles.profileImageWidth,
-                  height: styles.profileImageHeight,
-                }}
-                src="/vite.svg"
-                alt="Artist 1"
-              />
-              <div style={{display:"flex", alignItems:"center"}}>
-                <div style={{display:"flex", alignItems:"center"}}>
-                <span
-                  style={{
-                    color: styles.artistNameTextColor,
-                    fontSize: styles.artistNameTextSize,
-                    fontWeight: styles.artistNameTextWeight,
-                  }}
-                >
-                  Artist 1
-                </span>
-                <span style={{}}>|</span>
-                </div>
-                <img
-                  src="/vite.svg"
-                  alt="Spotify"
-                  style={{ width: "16px", height: "16px" }}
-                />
-              </div>
-            </div>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <img
-                style={{
-                  width: styles.profileImageWidth,
-                  height: styles.profileImageHeight,
-                }}
-                src="/vite.svg"
-                alt="Artist 1"
-              />
-              <div style={{display:"flex", alignItems:"center"}}>
-                <div style={{display:"flex", alignItems:"center"}}>
-                <span
-                  style={{
-                    color: styles.artistNameTextColor,
-                    fontSize: styles.artistNameTextSize,
-                    fontWeight: styles.artistNameTextWeight,
-                  }}
-                >
-                  Artist 1
-                </span>
-                <span style={{}}>|</span>
-                </div>
-                <img
-                  src="/vite.svg"
-                  alt="Spotify"
-                  style={{ width: "16px", height: "16px" }}
-                />
-              </div>
-            </div>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <img
-                style={{
-                  width: styles.profileImageWidth,
-                  height: styles.profileImageHeight,
-                }}
-                src="/vite.svg"
-                alt="Artist 1"
-              />
-              <div style={{display:"flex", alignItems:"center"}}>
-                <div style={{display:"flex", alignItems:"center"}}>
-                <span
-                  style={{
-                    color: styles.artistNameTextColor,
-                    fontSize: styles.artistNameTextSize,
-                    fontWeight: styles.artistNameTextWeight,
-                  }}
-                >
-                  Artist 1
-                </span>
-                <span style={{}}>|</span>
-                </div>
-                <img
-                  src="/vite.svg"
-                  alt="Spotify"
-                  style={{ width: "16px", height: "16px" }}
-                />
-              </div>
-            </div>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <img
-                style={{
-                  width: styles.profileImageWidth,
-                  height: styles.profileImageHeight,
-                }}
-                src="/vite.svg"
-                alt="Artist 2"
-              />
-              <div style={{display:"flex", alignItems:"center"}}>
-                <div style={{display:"flex", alignItems:"center"}}>
-                <span
-                  style={{
-                    color: styles.artistNameTextColor,
-                    fontSize: styles.artistNameTextSize,
-                    fontWeight: styles.artistNameTextWeight,
-                  }}
-                >
-                  Artist 2
-                </span>
-                <span style={{}}>|</span>
-                </div>
-                <img
-                  src="/vite.svg"
-                  alt="Spotify"
-                  style={{ width: "16px", height: "16px" }}
-                />
-              </div>
-            </div>
+            </div>)}
           </div>
         </div>
 
@@ -240,6 +100,7 @@ const EventDeailSection = ({ styles }: any) => {
               fontSize: styles.headingTextSize,
               fontWeight: styles.headingTextWeight,
               marginBottom: "5px",
+              fontFamily:"Mulish",
             }}
           >
             Invite your friends
@@ -264,6 +125,7 @@ const EventDeailSection = ({ styles }: any) => {
                 fontSize: styles.headingTextSize,
                 fontWeight: styles.headingTextWeight,
                 marginBottom: "5px",
+                fontFamily:"Mulish",
               }}
             >
               Terms & conditions
@@ -276,6 +138,7 @@ const EventDeailSection = ({ styles }: any) => {
               fontSize: styles.detailTextSize,
               fontWeight: styles.detailTextWeight,
               marginBottom: "5px",
+              fontFamily:"Mulish",
             }}
           >
             This is a single-entry show. Please keep your tickets and wristbands

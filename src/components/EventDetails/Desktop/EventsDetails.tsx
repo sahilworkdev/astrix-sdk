@@ -7,6 +7,7 @@ import BottomBar from "../BottomBar";
 const EventsDetails = () => {
   const cardStyles = {
     backgroundColor: "#C8C69300",
+    backgroundColorTo:"#839D6066",
     imageWidth: "30%",
     imageHeight: "auto",
     aspectRatio: "4/3",  
@@ -82,11 +83,11 @@ const EventsDetails = () => {
   }
 
   return (
-    <div>
+    <div style={{backgroundColor:"#1F1F1F99"}}>
       <div>
         <EventCard styles={cardStyles} />
       </div>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", marginTop:"20px" }}>
         <div style={{ width: "40%" }}>
           <EventDeailSection styles={sectStyles} />
         </div>

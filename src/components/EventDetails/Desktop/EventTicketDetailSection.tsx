@@ -1,28 +1,82 @@
+import Arrow from "@/components/general/Arrow";
+import LocationIcon from "@/components/general/LocationIcon";
 import React from "react";
 
-const EventTicketDetailSection = ({styles}:any) => {
+const EventTicketDetailSection = ({ styles }: any) => {
   return (
-    <div>
-      <div
-        style={{
-          backgroundColor:styles.bg,
-          padding: "16px",
-          borderRadius: "12px",
-          color: "#fff",
-          fontFamily: "Arial, sans-serif",
-          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
-        }}
-      >
-        <h2
+    <div
+      style={{
+        backgroundColor: styles.bg,
+        padding: "16px",
+        borderRadius: "12px",
+        border: "1px solid #EEEDED10",
+        color: "#fff",
+        fontFamily: "Arial, sans-serif",
+        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
+      }}
+    >
+      <div style={{}}>
+        <div
           style={{
-            fontSize: styles.headingtextColor,
+            display: "flex",
+            gap: "10px",
+            justifyContent: "space-between",
+            backgroundColor: "#1F1F1F99",
+            padding: "16px",
+            borderRadius: "12px",
+            border: "1px solid #31373F66",
+          }}
+        >
+          <div style={{ display: "flex", gap: "10px" }}>
+            <div>
+              <LocationIcon bgColor="#AF8CFF" width={24} height={24} />
+            </div>
+            <div>
+              <p
+                style={{
+                  fontSize: styles.ticketDescriptionTextSize,
+                  fontWeight: styles.ticketDescriptionTextWeight,
+                  color: styles.ticketDescriptionTextColor,
+                  fontFamily: "Mulish",
+                }}
+              >
+                Locarion
+              </p>
+              <p
+                style={{
+                  fontSize: styles.ticketNameTextSize,
+                  fontWeight: styles.ticketNameTextWeight,
+                  color: styles.ticketNameTextColor,
+                  marginBottom: "4px",
+                  fontFamily: "Mulish",
+                }}
+              >
+                Delhu
+              </p>
+            </div>
+          </div>
+          <div>
+            <p>
+              {"<"}
+            </p>
+          </div>
+        </div>
+        <div
+          style={{ backgroundColor: "#1F1F1F99", borderRadius: "12px" }}
+        ></div>
+      </div>
+      <div style={{ marginTop: "30px" }}>
+        <p
+          style={{
+            color: styles.headingTextColor,
+            fontSize: "24px",
             fontWeight: styles.headingTextWeight,
-            color:styles.headingTextColor,
             marginBottom: "12px",
+            fontFamily: "Mulish",
           }}
         >
           Add Your Ticket
-        </h2>
+        </p>
         <div
           style={{
             backgroundColor: styles.ticketContainerBg,
@@ -30,8 +84,8 @@ const EventTicketDetailSection = ({styles}:any) => {
             borderRadius: "8px",
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "center",
-            border: "1px solid #2c2c2c",
+            alignItems: "start",
+            border: "2px solid #31373F",
           }}
         >
           <div>
@@ -39,8 +93,9 @@ const EventTicketDetailSection = ({styles}:any) => {
               style={{
                 fontSize: styles.ticketNameTextSize,
                 fontWeight: styles.ticketNameTextWeight,
-                color:styles.ticketNameTextColor,
+                color: styles.ticketNameTextColor,
                 marginBottom: "4px",
+                fontFamily: "Mulish",
               }}
             >
               rktjhret hiu{" "}
@@ -48,9 +103,10 @@ const EventTicketDetailSection = ({styles}:any) => {
                 style={{
                   fontSize: styles.ticketNameTextSize,
                   fontWeight: styles.ticketNameTextWeight,
-                  color:styles.ticketNameTextColor,
+                  color: styles.ticketNameTextColor,
                   marginLeft: "4px",
                   cursor: "pointer",
+                  fontFamily: "Mulish",
                 }}
               >
                 (Add)
@@ -60,7 +116,8 @@ const EventTicketDetailSection = ({styles}:any) => {
               style={{
                 fontSize: styles.ticketDescriptionTextSize,
                 fontWeight: styles.ticketDescriptionTextWeight,
-                color:styles.ticketDescriptionTextColor,
+                color: styles.ticketDescriptionTextColor,
+                fontFamily: "Mulish",
               }}
             >
               kjghre iugreyjur
@@ -70,7 +127,8 @@ const EventTicketDetailSection = ({styles}:any) => {
             style={{
               fontSize: styles.priceTextSize,
               fontWeight: styles.priceTextWeight,
-              color:styles.priceTextColor,
+              color: styles.priceTextColor,
+              fontFamily: "Mulish",
             }}
           >
             ₹342
