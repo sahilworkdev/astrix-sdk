@@ -2,49 +2,58 @@ import React from "react";
 import { AuthProvider } from "./providers/AuthProvider";
 import { ThemeProvider } from "./providers/ThemeProvider";
 import "./index.css";
+import CartHead from "./components/Cart/CartHead";
+import EventsDetails from "./components/EventDetails/Desktop/EventsDetails";
+import HeadConfirmation from "./components/Confirmaition/HeadConfirmation";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
+import TopEventBanner from "./components/landingAndHome/desktop/TopEventBanner";
 import TopEventsSlider from "./components/landingAndHome/desktop/TopEventsSlider";
-import LiveCarousel from "./components/landingAndHome/desktop/LiveCarousel";
-import PastCarousel from "./components/landingAndHome/desktop/PastCarousel";
-import Divider from "./components/general/Divider";
-import Dropdown from "./components/eventCreation/dropdown";
-import Calendar from "./components/eventCreation/calendar";
-import { TimeDial } from "./components/eventCreation/clock";
+import EventCard from "./components/EventDetails/Desktop/EventCard";
+import EventCardSmall from "./components/general/EventCardSmall";
+import HeadProfile from "./components/Profile/Desktop/HeadProfile";
+import Details from "./components/Confirmaition/Details";
+import { details, selectedEvent, selectedTicket } from "./data";
 
-const handleSelect = (option: string) => {
-  console.log("Selected:", option);
-};
 function App() {
+
+  const vals = {
+    yourCart:{
+      selectedEvent:{selectedEvent},
+      selectedTicket:{selectedTicket},
+      billSummary:{}
+    },
+    paymentSelection:{}
+  }
+
+  const detailVals = {
+    eventCardDetails : {
+      details: details,
+    },
+    detail:{},
+    ticketDetailSsection:{},
+    bottomBar:{}
+  }
+
   return (
-    <div style={{ background: "black", minHeight: "100vh" }}>
+    <Provider store={store}>
+    <div style={{ background: "black", height: "100vh" }}>
       <AuthProvider token={import.meta.env.VITE_ASTRIX_APP_AUTH_TOKEN}>
         <ThemeProvider accentColor={import.meta.env.VITE_ACCENT_COLOR}>
           {/* <h1 style={{ textAlign: "center" }}>Astrix SDK</h1> */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "30px",
-              padding: "20px",
-            }}
-          >
-            <TopEventsSlider showArrows={true} type="home" />
-            <Divider title="hello" />
-            <Dropdown
-              options={["Apple", "Banana", "Cherry"]}
-              onSelect={handleSelect}
-            />
-            <Calendar onDateChange={() => {}} selectedDate={new Date()} />
-            <TimeDial
-              handleTimeClick={() => {}}
-              isHourView={true}
-              selectedTime={{ hour: 12, minute: 30 }}
-            />
-            <LiveCarousel />
-            <PastCarousel />
-          </div>
+          {/* <HeadConfirmation /> */}
+          {/* <TopEventsSlider type={""} showArrows={false} /> */}
+          <EventsDetails details={detailVals} />
+          {/* <CartHead details={vals} /> */}
+          {/* <HeadConfirmation /> */}
+        
+          {/* <EventCardSmall /> */}
+          {/* <HeadProfile /> */}
+        
         </ThemeProvider>
       </AuthProvider>
     </div>
+    </Provider>
   );
 }
 

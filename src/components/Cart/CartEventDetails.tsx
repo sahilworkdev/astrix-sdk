@@ -1,6 +1,8 @@
 import React from "react";
+import LocationIcon from "../general/LocationIcon";
+import CalendarIcon from "../general/CalendarIcon";
 
-const CartEventDetails = ({ styles }: any) => {
+const CartEventDetails = ({ styles, selectedEvent, selectedTicket }: any) => {
   return (
     <div>
       <div>
@@ -13,7 +15,7 @@ const CartEventDetails = ({ styles }: any) => {
             marginBottom: "4px",
           }}
         >
-          Junkie Event the blast
+          {selectedEvent?.name}
         </h2>
         <p
           style={{
@@ -23,7 +25,7 @@ const CartEventDetails = ({ styles }: any) => {
             marginBottom: "16px",
           }}
         >
-          By Hot Sauce
+          {selectedEvent?.user?.username}
         </p>
 
         {/* Phase and Ticket Info */}
@@ -46,7 +48,7 @@ const CartEventDetails = ({ styles }: any) => {
                 fontSize: styles.ticketNameTextSize,
               }}
             >
-              Phase 2
+              {selectedTicket?.name}
             </strong>
             <p
               style={{
@@ -55,8 +57,7 @@ const CartEventDetails = ({ styles }: any) => {
                 fontSize: styles.ticketDescriptionSize,
               }}
             >
-              Description of ticket by Hot Sauce is an hip-hop music event
-              featuring an
+            {selectedTicket?.description}
             </p>
           </div>
           <div>
@@ -67,7 +68,7 @@ const CartEventDetails = ({ styles }: any) => {
                 fontWeight: styles.tickeCountAndPriceWeight,
               }}
             >
-              x 2
+              {selectedTicket?.qty}
             </span>
           </div>
           <div>
@@ -78,7 +79,7 @@ const CartEventDetails = ({ styles }: any) => {
                 fontWeight: styles.tickeCountAndPriceWeight,
               }}
             >
-              ₹1999
+              {selectedTicket?.price}
             </span>
           </div>
         </div>
@@ -89,7 +90,7 @@ const CartEventDetails = ({ styles }: any) => {
             flexDirection: "column",
             gap: "20px",
             width: "75%",
-            paddingBottom:"20px"
+            paddingBottom: "20px",
           }}
         >
           {/* Location */}
@@ -98,10 +99,14 @@ const CartEventDetails = ({ styles }: any) => {
               color: styles.valuesColor,
               fontSize: styles.valuesSize,
               fontWeight: styles.valuesWeight,
+              display: "flex",
             }}
           >
-            <span style={{ marginRight: "8px" }}>📍</span>
-            2nd Floor, JLN Stadium | Delhi, India
+            <p style={{ marginRight: "8px" }}>
+              <LocationIcon />
+            </p>
+            <p>{selectedEvent?.venue}</p>
+            <p>{selectedEvent?.location}</p>
           </div>
 
           {/* Date and Time */}
@@ -113,47 +118,56 @@ const CartEventDetails = ({ styles }: any) => {
               color: "#bbb",
             }}
           >
-            <div>
-              <span style={{ marginRight: "6px" }}>📅</span>
-              <span
-                style={{
-                  color: styles.detailHeaderColor,
-                  fontSize: styles.detailHeaderSize,
-                  fontWeight: styles.detailHeaderWeight,
-                }}
-              >
-                Starting on
-              </span>
-              <p
-                style={{
-                  color: styles.valuesColor,
-                  fontSize: styles.valuesSize,
-                  fontWeight: styles.valuesWeight,
-                }}
-              >
-                Sun 26 Sept, 2024 | 7:00 P.M.
+            <div style={{ display: "flex" }}>
+              <p style={{ marginRight: "6px" }}>
+                <CalendarIcon bgColor="#AF8CFF" />
               </p>
+              <div>
+                {" "}
+                <p
+                  style={{
+                    color: styles.detailHeaderColor,
+                    fontSize: styles.detailHeaderSize,
+                    fontWeight: styles.detailHeaderWeight,
+                  }}
+                >
+                  Starting on
+                </p>
+                <p
+                  style={{
+                    color: styles.valuesColor,
+                    fontSize: styles.valuesSize,
+                    fontWeight: styles.valuesWeight,
+                  }}
+                >
+                  {selectedEvent?.startDate}
+                </p>
+              </div>
             </div>
-            <div>
-              <span style={{ marginRight: "6px" }}>📅</span>
-              <span
-                style={{
-                  color: styles.detailHeaderColor,
-                  fontSize: styles.detailHeaderSize,
-                  fontWeight: styles.detailHeaderWeight,
-                }}
-              >
-                Closing on
-              </span>
-              <p
-                style={{
-                  color: styles.valuesColor,
-                  fontSize: styles.valuesSize,
-                  fontWeight: styles.valuesWeight,
-                }}
-              >
-                Sun 30 Sept, 2024 | 11:00 P.M.
+            <div style={{ display: "flex" }}>
+              <p style={{ marginRight: "6px" }}>
+                <CalendarIcon bgColor="#AF8CFF" />
               </p>
+              <div>
+                <p
+                  style={{
+                    color: styles.detailHeaderColor,
+                    fontSize: styles.detailHeaderSize,
+                    fontWeight: styles.detailHeaderWeight,
+                  }}
+                >
+                  Closing on
+                </p>
+                <p
+                  style={{
+                    color: styles.valuesColor,
+                    fontSize: styles.valuesSize,
+                    fontWeight: styles.valuesWeight,
+                  }}
+                >
+                  {selectedEvent?.endDate}
+                </p>
+              </div>
             </div>
           </div>
         </div>

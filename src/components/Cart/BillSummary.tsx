@@ -1,6 +1,6 @@
 import React from "react";
 
-export const BillSummary = ({ styles }: any) => {
+export const BillSummary = ({ styles, selectedTicket }: any) => {
   return (
     <div style={{}}>
       {/* Title */}
@@ -30,6 +30,7 @@ export const BillSummary = ({ styles }: any) => {
             style={{
               display: "flex",
               justifyContent: "space-between",
+              gap:"20px",
               marginBottom: "8px",
               fontSize: "14px",
               color: "#bbb",
@@ -42,7 +43,7 @@ export const BillSummary = ({ styles }: any) => {
                 fontWeight: styles.listTagWeight,
               }}
             >
-              Early Bird Ticket
+              {selectedTicket?.name}
             </span>
             <span
               style={{
@@ -51,13 +52,14 @@ export const BillSummary = ({ styles }: any) => {
                 fontWeight: styles.listValueWeight,
               }}
             >
-              ₹1999
+              {100}
             </span>
           </div>
           <div
             style={{
               display: "flex",
               justifyContent: "space-between",
+              gap:"20px",
               marginBottom: "8px",
               fontSize: "14px",
               color: "#bbb",
@@ -86,6 +88,7 @@ export const BillSummary = ({ styles }: any) => {
             style={{
               display: "flex",
               justifyContent: "space-between",
+              gap:"20px",
               marginBottom: "8px",
               fontSize: "14px",
               color: "#bbb",
@@ -114,6 +117,7 @@ export const BillSummary = ({ styles }: any) => {
             style={{
               display: "flex",
               justifyContent: "space-between",
+              gap:"20px",
               marginBottom: "8px",
               fontSize: "14px",
               color: "#bbb",
@@ -142,6 +146,7 @@ export const BillSummary = ({ styles }: any) => {
             style={{
               display: "flex",
               justifyContent: "space-between",
+              gap:"20px",
               fontWeight: "bold",
               fontSize: "16px",
             }}
@@ -172,6 +177,7 @@ export const BillSummary = ({ styles }: any) => {
         style={{
           display: "flex",
           justifyContent: "space-between",
+          gap:"20px",
           fontSize: "16px",
           fontWeight: "bold",
           paddingTop: "10px",

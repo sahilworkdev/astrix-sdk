@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import EventCard from "./EventCard";
 import EventDeailSection from "./EventDeailSection";
 import EventTicketDetailSection from "./EventTicketDetailSection";
 import BottomBar from "../BottomBar";
+import { useSelector } from "react-redux";
+import { setSelectedEvent } from "@/redux/reducers/selectedEventSlice";
 
-const EventsDetails = () => {
+const EventsDetails = ({details}:any) => {
   const cardStyles = {
+    fontFamily:"mulish",
     backgroundColor: "#C8C69300",
-    imageWidth: "30%",
+    backgroundColorTo:`${"#AF8CFF"}40`,
+    imageWidth: "40%",
     imageHeight: "auto",
-    aspectRatio: "4/3",  
+    aspectRatio: "4/2",  
     profileImageWidth: "40px",
     profileImageHeight: "40px",
-    profileBoderColor:"#B0E681",
+    profileBoderColor:"#AF8CFF",
     userNameTextColor: "#CCD0D7",
     userNameTextSize: "28px",
     userNameTextWeight: "400",
@@ -48,16 +52,24 @@ const EventsDetails = () => {
   
   const ticketsStyles = {
     bg:"#FFFFFF1A",
-    headingtextColor:"#E8EAED",
-    headingtextWeight:"600",
-    headingtextSize:"24px",
+    headingTextColor:"#E8EAED",
+    headingTextWeight:"600",
+    headingTextSize:"24px",
+    headingTextFamily:"Mulish",
     ticketContainerBg :"#1F1F1F99",
+    selectedEventBg:"#1F1F1F99",
     ticketNameTextColor:"#E8EAED",
     ticketNameTextSize:"24px",
     ticketNameTextWeight:"600",
-    ticketDescriptionTextColor:"##AFB6C0",
+    ticketDescriptionTextColor:"#AFB6C0",
     ticketDescriptionTextSize:"16px",
     ticketDescriptionTextWeight:"400",
+    locationTextColor:"#CCD0D7",
+    locationTextSize:"16px",
+    locationTextWeight:"400",
+    venueTextColor:"#CCD0D7",
+    venueTextSize:"20px",
+    venueTextWeight:"600",
     priceTextSize:"24px",
     priceTextColor:"#AFE67F",
     priceTextWeight:"700",
@@ -81,21 +93,41 @@ const EventsDetails = () => {
     btnRadius:"20px"
   }
 
+  const eventDetail = useSelector((state:any) => state.selectedEventDetail.selectedEventDetail)
+ 
+    const [selectedEvent, setSelectedEvent] = useState(eventDetail?.events?.[0] || {});
+    const [selectedTicket, setSelectedTicket] = useState(selectedEvent?.tickets?.[0] || {});
+    const [showAllEvents, setShowAllEvents] = useState(false);
+    const [ticketCount, setTicketCount] = useState(0)
+
+    const need = {
+      selectedEvent: selectedEvent,
+      selectedTicket: selectedTicket,
+      showAllEvents: showAllEvents,
+      ticketCount: ticketCount,
+      setTicketCount: setTicketCount,
+      setShowAllEvents: setShowAllEvents,
+      setSelectedEvent: setSelectedEvent,
+      setSelectedTicket: setSelectedTicket,
+    }
+
   return (
-    <div>
+    <div style={{position:"relative", backgroundColor:"#0E0F0C", backdropFilter: 'blur(8px)',height:"100%", overflow:"auto"}}>
+      <div style={{ height:"100%", overflow:"auto", }}>
       <div>
-        <EventCard styles={cardStyles} />
+        <EventCard styles={cardStyles} values={details?.eventDetails?.details} />
       </div>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex" ,marginTop:"20px"}}>
         <div style={{ width: "40%" }}>
-          <EventDeailSection styles={sectStyles} />
+          <EventDeailSection styles={sectStyles}  values={details} />
         </div>
         <div style={{ width: "60%" }}>
-          <EventTicketDetailSection styles={ticketsStyles} />
+          <EventTicketDetailSection styles={ticketsStyles} states ={need} values={details} />
         </div>
       </div>
-      <div>
-        <BottomBar styles={bottomStyles} />
+      </div>
+      <div style={{position:"absolute", bottom:"0px", left:"0px", width:"100%", border:"2px solid #31373F66", borderRadius:"12px"}}>
+        <BottomBar styles={bottomStyles} states={need} btnText={selectedTicket?.price === 0 ? "claim" : "Proceed to Pay" } />
       </div>
     </div>
   );
