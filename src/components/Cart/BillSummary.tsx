@@ -1,6 +1,6 @@
 import React from "react";
 
-export const BillSummary = ({ styles }: any) => {
+export const BillSummary = ({ styles, selectedTicket }: any) => {
   return (
     <div style={{}}>
       {/* Title */}
@@ -43,7 +43,7 @@ export const BillSummary = ({ styles }: any) => {
                 fontWeight: styles.listTagWeight,
               }}
             >
-              Early Bird Ticket
+              {selectedTicket?.name}
             </span>
             <span
               style={{
@@ -52,7 +52,7 @@ export const BillSummary = ({ styles }: any) => {
                 fontWeight: styles.listValueWeight,
               }}
             >
-              ₹1999
+              {100}
             </span>
           </div>
           <div

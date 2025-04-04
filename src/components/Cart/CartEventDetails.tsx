@@ -2,7 +2,7 @@ import React from "react";
 import LocationIcon from "../general/LocationIcon";
 import CalendarIcon from "../general/CalendarIcon";
 
-const CartEventDetails = ({ values, styles }: any) => {
+const CartEventDetails = ({ styles, selectedEvent, selectedTicket }: any) => {
   return (
     <div>
       <div>
@@ -15,7 +15,7 @@ const CartEventDetails = ({ values, styles }: any) => {
             marginBottom: "4px",
           }}
         >
-          {values?.name}
+          {selectedEvent?.name}
         </h2>
         <p
           style={{
@@ -25,7 +25,7 @@ const CartEventDetails = ({ values, styles }: any) => {
             marginBottom: "16px",
           }}
         >
-          {values?.user?.username}
+          {selectedEvent?.user?.username}
         </p>
 
         {/* Phase and Ticket Info */}
@@ -48,7 +48,7 @@ const CartEventDetails = ({ values, styles }: any) => {
                 fontSize: styles.ticketNameTextSize,
               }}
             >
-              Phase 2
+              {selectedTicket?.name}
             </strong>
             <p
               style={{
@@ -57,8 +57,7 @@ const CartEventDetails = ({ values, styles }: any) => {
                 fontSize: styles.ticketDescriptionSize,
               }}
             >
-              Description of ticket by Hot Sauce is an hip-hop music event
-              featuring an
+            {selectedTicket?.description}
             </p>
           </div>
           <div>
@@ -69,7 +68,7 @@ const CartEventDetails = ({ values, styles }: any) => {
                 fontWeight: styles.tickeCountAndPriceWeight,
               }}
             >
-              x 2
+              {selectedTicket?.qty}
             </span>
           </div>
           <div>
@@ -80,7 +79,7 @@ const CartEventDetails = ({ values, styles }: any) => {
                 fontWeight: styles.tickeCountAndPriceWeight,
               }}
             >
-              ₹1999
+              {selectedTicket?.price}
             </span>
           </div>
         </div>
@@ -106,8 +105,8 @@ const CartEventDetails = ({ values, styles }: any) => {
             <p style={{ marginRight: "8px" }}>
               <LocationIcon />
             </p>
-            <p>{values?.venue}</p>
-            <p>{values?.location}</p>
+            <p>{selectedEvent?.venue}</p>
+            <p>{selectedEvent?.location}</p>
           </div>
 
           {/* Date and Time */}
@@ -141,7 +140,7 @@ const CartEventDetails = ({ values, styles }: any) => {
                     fontWeight: styles.valuesWeight,
                   }}
                 >
-                  {values?.startDate}
+                  {selectedEvent?.startDate}
                 </p>
               </div>
             </div>
@@ -166,7 +165,7 @@ const CartEventDetails = ({ values, styles }: any) => {
                     fontWeight: styles.valuesWeight,
                   }}
                 >
-                  {values?.endDate}
+                  {selectedEvent?.endDate}
                 </p>
               </div>
             </div>

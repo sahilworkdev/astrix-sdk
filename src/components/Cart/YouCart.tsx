@@ -3,7 +3,7 @@ import CartEventDetails from './CartEventDetails'
 import { BillSummary } from './BillSummary'
 
 const YouCart = ({values}:any) => {
-
+    debugger
     const detailsStyles = {
         eventNameTextColor:"#E8EAED",
         eventNameTextSize:"20px",
@@ -58,10 +58,10 @@ const YouCart = ({values}:any) => {
             <p style={{color:"#E8EAED", fontSize:"22px", fontWeight:"700", marginBottom:"16px"}}>Your Cart</p>
         </div>
         <div>
-            <CartEventDetails styles={detailsStyles} values={values} />
+            <CartEventDetails styles={detailsStyles} selectedEvent = {values?.selectedEvent?.selectedEvent} selectedTicket={values?.selectedTicket?.selectedTicket} />
         </div>
         <div>
-            <BillSummary styles={billSummaryStyles}  />
+            <BillSummary styles={billSummaryStyles} selectedTicket={values?.selectedTicket?.selectedTicket}/>
         </div>
     </div>
   )

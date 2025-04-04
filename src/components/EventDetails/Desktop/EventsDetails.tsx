@@ -6,7 +6,7 @@ import BottomBar from "../BottomBar";
 import { useSelector } from "react-redux";
 import { setSelectedEvent } from "@/redux/reducers/selectedEventSlice";
 
-const EventsDetails = () => {
+const EventsDetails = ({details}:any) => {
   const cardStyles = {
     fontFamily:"mulish",
     backgroundColor: "#C8C69300",
@@ -115,19 +115,19 @@ const EventsDetails = () => {
     <div style={{position:"relative", backgroundColor:"#0E0F0C", backdropFilter: 'blur(8px)',height:"100%", overflow:"auto"}}>
       <div style={{ height:"100%", overflow:"auto", }}>
       <div>
-        <EventCard styles={cardStyles} values={eventDetail} />
+        <EventCard styles={cardStyles} values={details?.eventDetails?.details} />
       </div>
       <div style={{ display: "flex" ,marginTop:"20px"}}>
         <div style={{ width: "40%" }}>
-          <EventDeailSection styles={sectStyles}  values={eventDetail} />
+          <EventDeailSection styles={sectStyles}  values={details} />
         </div>
         <div style={{ width: "60%" }}>
-          <EventTicketDetailSection styles={ticketsStyles}  values={eventDetail} />
+          <EventTicketDetailSection styles={ticketsStyles} states ={need} values={details} />
         </div>
       </div>
       </div>
       <div style={{position:"absolute", bottom:"0px", left:"0px", width:"100%", border:"2px solid #31373F66", borderRadius:"12px"}}>
-        <BottomBar styles={bottomStyles} />
+        <BottomBar styles={bottomStyles} states={need} btnText={selectedTicket?.price === 0 ? "claim" : "Proceed to Pay" } />
       </div>
     </div>
   );

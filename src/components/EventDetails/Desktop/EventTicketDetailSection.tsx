@@ -2,49 +2,47 @@ import Arrow from "@/components/general/Arrow";
 import LocationIcon from "@/components/general/LocationIcon";
 import React, { useEffect, useState } from "react";
 
-const EventTicketDetailSection = ({ styles, values }: any) => {
+const EventTicketDetailSection = ({ styles, states, values }: any) => {
   const places = values?.events?.map((event: any) => ({
     venue: event.venue,
     location: event.location,
   }));
 
-  const [selectedEvent, setSelectedEvent] = useState(values?.events?.[0] || {});
-  const [selectedTicket, setSelectedTicket] = useState(
-    selectedEvent?.tickets?.[0] || {}
-  );
-  const [showAllEvents, setShowAllEvents] = useState(false);
-  const [ticketCount, setTicketCount] = useState(0);
+  // const [selectedEvent, setSelectedEvent] = useState(values?.events?.[0] || {});
+  // const [selectedTicket, setSelectedTicket] = useState(
+  //   selectedEvent?.tickets?.[0] || {}
+  // );
+  // const [showAllEvents, setShowAllEvents] = useState(false);
+  // const [ticketCount, setTicketCount] = useState(0);
 
   const selectEvent = (event: any) => {
-    setSelectedEvent(event);
-    setShowAllEvents(false);
+    states?.setSelectedEvent(event);
+    states?.setShowAllEvents(false);
   };
   const selectTicket = (ticket: any) => {
-    setSelectedTicket(ticket);
-    setTicketCount(1);
-    debugger;
+    states?.setSelectedTicket(ticket);
+    states?.setTicketCount(1);
   };
 
   const addTicketCount = (e: any) => {
     e.stopPropagation();
-    debugger;
-    if (selectedTicket.maxQty === ticketCount) return;
+    if (states?.selectedTicket.maxQty === states?.ticketCount) return;
     else {
-      setTicketCount(ticketCount + 1);
+      states?.setTicketCount(states?.ticketCount + 1);
     }
   };
 
   const decreaseTicketCount = (e: any) => {
     e.stopPropagation();
-    if (ticketCount === 0) return;
+    if (states?.ticketCount === 0) return;
     else {
-      setTicketCount(ticketCount - 1);
+      states?.setTicketCount(states?.ticketCount - 1);
     }
   };
 
   useEffect(() => {
     if (values?.events?.length > 0) {
-      setSelectedEvent(values.events[0]);
+      states?.setSelectedEvent(values.events[0]);
     }
   }, [values?.events]);
 
@@ -53,7 +51,6 @@ const EventTicketDetailSection = ({ styles, values }: any) => {
   //     setSelectedTicket(selectedEvent?.tickets?.[0]);
   //   }
   // }, []);
-  debugger;
 
   return (
     <div>
@@ -69,7 +66,7 @@ const EventTicketDetailSection = ({ styles, values }: any) => {
       >
         {values?.superEventId && (
           <div style={{ marginBottom: "20px" }}>
-            {showAllEvents && (
+            {states?.showAllEvents && (
               <h2
                 style={{
                   fontSize: styles.headingTextColor,
@@ -109,7 +106,7 @@ const EventTicketDetailSection = ({ styles, values }: any) => {
                         fontFamily: "Mulish",
                       }}
                     >
-                      {selectedEvent?.location}
+                      {states?.selectedEvent?.location}
                     </div>
                     <div
                       style={{
@@ -120,14 +117,14 @@ const EventTicketDetailSection = ({ styles, values }: any) => {
                         fontFamily: "Mulish",
                       }}
                     >
-                      {selectedEvent?.venue}
+                      {states?.selectedEvent?.venue}
                     </div>
                   </div>
                 </div>
                 <p
                   style={{ cursor: "pointer" }}
-                  id={`${showAllEvents ? "up" : "down"}`}
-                  onClick={() => setShowAllEvents(!showAllEvents)}
+                  id={`${states?.showAllEvents ? "up" : "down"}`}
+                  onClick={() => states?.setShowAllEvents(!states?.showAllEvents)}
                 >
                   <Arrow size="24px" color="white" />
                 </p>
@@ -143,7 +140,7 @@ const EventTicketDetailSection = ({ styles, values }: any) => {
                 alignItems: "start",
               }}
             >
-              {showAllEvents &&
+              {states?.showAllEvents &&
                 values?.events?.map((event: any, index: any) => (
                   <div
                     style={{
@@ -201,8 +198,8 @@ const EventTicketDetailSection = ({ styles, values }: any) => {
             Add Your Ticket
           </h2>
           <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
-            {selectedEvent &&
-              selectedEvent?.tickets?.map((ticket: any, index: any) => (
+            {states?.selectedEvent &&
+              states?.selectedEvent?.tickets?.map((ticket: any, index: any) => (
                 <div
                   style={{
                     backgroundColor: styles.ticketContainerBg,
@@ -252,7 +249,7 @@ const EventTicketDetailSection = ({ styles, values }: any) => {
                       {ticket?.description}
                     </div>
                   </div>
-                  {selectedTicket.tId === ticket.tId && (
+                  {states?.selectedTicket.tId === ticket.tId && (
                     <div
                       style={{
                         fontSize: styles.priceTextSize,
@@ -294,7 +291,7 @@ const EventTicketDetailSection = ({ styles, values }: any) => {
                             fontFamily: "Mulish",
                           }}
                         >
-                          {ticketCount}
+                          {states?.ticketCount}
                         </p>
                         <p
                           style={{
@@ -317,7 +314,7 @@ const EventTicketDetailSection = ({ styles, values }: any) => {
                           fontFamily: "Mulish",
                         }}
                       >
-                        ₹{selectedTicket?.price}
+                        ₹{states?.selectedTicket?.price}
                       </p>
                     </div>
                   )}

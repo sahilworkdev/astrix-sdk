@@ -12,8 +12,29 @@ import TopEventsSlider from "./components/landingAndHome/desktop/TopEventsSlider
 import EventCard from "./components/EventDetails/Desktop/EventCard";
 import EventCardSmall from "./components/general/EventCardSmall";
 import HeadProfile from "./components/Profile/Desktop/HeadProfile";
+import Details from "./components/Confirmaition/Details";
+import { details, selectedEvent, selectedTicket } from "./data";
 
 function App() {
+
+  const vals = {
+    yourCart:{
+      selectedEvent:{selectedEvent},
+      selectedTicket:{selectedTicket},
+      billSummary:{}
+    },
+    paymentSelection:{}
+  }
+
+  const detailVals = {
+    eventCardDetails : {
+      details: details,
+    },
+    detail:{},
+    ticketDetailSsection:{},
+    bottomBar:{}
+  }
+
   return (
     <Provider store={store}>
     <div style={{ background: "black", height: "100vh" }}>
@@ -21,9 +42,9 @@ function App() {
         <ThemeProvider accentColor={import.meta.env.VITE_ACCENT_COLOR}>
           {/* <h1 style={{ textAlign: "center" }}>Astrix SDK</h1> */}
           {/* <HeadConfirmation /> */}
-          <TopEventsSlider type={""} showArrows={false} />
-          <EventsDetails />
-          <CartHead />
+          {/* <TopEventsSlider type={""} showArrows={false} /> */}
+          <EventsDetails details={detailVals} />
+          {/* <CartHead details={vals} /> */}
           {/* <HeadConfirmation /> */}
         
           {/* <EventCardSmall /> */}
